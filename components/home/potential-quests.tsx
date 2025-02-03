@@ -1,12 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
 const POTENTIAL_QUESTS = [
   { title: "Get Base to sign the Ether Guild Pledge", status: "Coming Soon" },
