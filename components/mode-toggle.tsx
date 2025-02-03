@@ -20,7 +20,7 @@ export function ModeToggle() {
   return (
     <div className="relative">
       <Switch
-        className="bg-slate-200 dark:bg-slate-800"
+        className="bg-slate-200/60 dark:bg-slate-800/60"
         checked={theme === "dark"}
         onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
         aria-label="Toggle theme"

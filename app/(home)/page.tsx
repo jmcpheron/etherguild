@@ -8,9 +8,9 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <Hero
         imagePath="/image/ether-guild-hero.png"
-        splashText="Coordinate ETH Initiatives"
+        splashText="Fund ETH Initiatives"
       />
-      <div className="-mt-28 relative z-10">
+      <div className="-mt-[15%] relative z-10">
         <MainQuest />
       </div>
       <div className="mt-16">
