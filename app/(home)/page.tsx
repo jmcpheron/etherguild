@@ -1,5 +1,6 @@
 import { Hero } from "@/components/hero";
-import { MainQuest } from "@/components/main-quest";
+import { MainQuest } from "@/components/home/main-quest";
+import { ActiveQuests } from "@/components/home/active-quests";
 
 export default function Home() {
   return (
@@ -8,8 +9,11 @@ export default function Home() {
         imagePath="/image/ether-guild-hero.png"
         splashText="Fund ETH Initiatives"
       />
-      <div className="-mt-24 relative z-10">
+      <div className="-mt-28 relative z-10">
         <MainQuest />
+      </div>
+      <div className="mt-16">
+        <ActiveQuests />
       </div>
     </main>
   );
