@@ -8,14 +8,14 @@ const QUESTS = [
     percent: 100,
   },
   {
-    title: "Launch community funding event",
+    title: "Community funding event",
     description:
       "Host a community funding event to raise funds for the Ether Guild.",
     link: "/quest/protocol-guild",
     percent: 90,
   },
   {
-    title: "Announce the Ether Guild Pledge",
+    title: "Ether Guild Pledge",
     description:
       "Introduce a new pledge for Ethereum aligned projects to join the guild.",
     link: "/quest/pgn",
