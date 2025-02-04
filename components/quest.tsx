@@ -36,10 +36,7 @@ export function Quest({
 
       <Card className="p-6 flex flex-col h-full">
         <div className="flex-grow flex flex-col gap-6">
-          <div className="flex flex-col md:flex-row gap-8">
-            <h2 className="text-2xl font-bold md:w-3/5">{title}</h2>
-            <div className="md:w-2/5" />
-          </div>
+          <h2 className="text-2xl font-bold">{title}</h2>
 
           <div className="flex flex-col md:flex-row gap-8">
             <p className="text-slate-600 dark:text-slate-300 md:w-3/5">
