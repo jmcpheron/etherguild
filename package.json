@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development next dev --turbopack",
+    "db:push:prod": "DATABASE_URL=$(grep DATABASE_URL .env.production | cut -d= -f2- | tr -d '\"') bunx prisma db push",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
