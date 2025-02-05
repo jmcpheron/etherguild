@@ -19,6 +19,7 @@ async function main() {
         isMain: false,
         isActive: true,
         progress: 100,
+        link: "https://ethismoney.xyz",
       },
       {
         title: "Community funding event",
