@@ -17,7 +17,7 @@ export function Quest({ id }: QuestProps) {
   if (error) return <div>Error loading quest</div>;
   if (!quest) return null;
 
-  const { title, description, progress, isMain } = quest;
+  const { title, description, progress, isMain, link } = quest;
   const isComplete = progress === 100;
 
   return (
@@ -43,22 +43,43 @@ export function Quest({ id }: QuestProps) {
               {description}
             </p>
             <div
-              className={`md:w-2/5 flex flex-col gap-4 ${
-                isMain ? "items-end" : ""
+              className={`grid grid-cols-2 gap-4 md:flex md:flex-col md:w-2/5 ${
+                isMain ? "md:items-end" : ""
               }`}
             >
               {isMain ? (
                 <>
-                  <div className="w-full md:w-32 flex justify-end">
-                    <Button
-                      size="lg"
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                      disabled={isComplete}
-                    >
-                      {isComplete ? "Quest Complete!" : "Fund"}
-                    </Button>
+                  <div className="col-span-1 w-full md:w-32 md:flex md:justify-end">
+                    {isComplete ? (
+                      link ? (
+                        <Button
+                          size="lg"
+                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                          asChild
+                        >
+                          <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Project ↗
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button size="lg" className="w-full" disabled>
+                          Quest Complete!
+                        </Button>
+                      )
+                    ) : (
+                      <Button
+                        size="lg"
+                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                      >
+                        Fund
+                      </Button>
+                    )}
                   </div>
-                  <div className="w-full md:w-32 flex justify-end">
+                  <div className="col-span-1 w-full md:w-32 md:flex md:justify-end">
                     <Button variant="outline" size="lg" className="w-full">
                       Read More
                     </Button>
@@ -66,16 +87,41 @@ export function Quest({ id }: QuestProps) {
                 </>
               ) : (
                 <>
-                  <Button
-                    size="lg"
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    disabled={isComplete}
-                  >
-                    {isComplete ? "Quest Complete!" : "Fund"}
-                  </Button>
-                  <Button variant="outline" size="lg" className="w-full">
-                    Read More
-                  </Button>
+                  <div className="col-span-1">
+                    {isComplete ? (
+                      link ? (
+                        <Button
+                          size="lg"
+                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                          asChild
+                        >
+                          <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            View Project ↗
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button size="lg" className="w-full" disabled>
+                          Quest Complete!
+                        </Button>
+                      )
+                    ) : (
+                      <Button
+                        size="lg"
+                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                      >
+                        Fund
+                      </Button>
+                    )}
+                  </div>
+                  <div className="col-span-1">
+                    <Button variant="outline" size="lg" className="w-full">
+                      Read More
+                    </Button>
+                  </div>
                 </>
               )}
             </div>
