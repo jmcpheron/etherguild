@@ -17,9 +17,10 @@ model Quest {
   id          String   @id @default(cuid())
   title       String
   description String
-  progress    Int      @default(0)
+  link        String?
   isMain      Boolean  @default(false)
-  isActive      Boolean  @default(false)
+  isActive    Boolean  @default(false)
+  progress    Int      @default(0)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

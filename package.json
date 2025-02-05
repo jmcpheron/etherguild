@@ -8,6 +8,7 @@
     "db:migrate": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma migrate dev",
     "db:migrate:prod": "DATABASE_URL=$(grep DATABASE_URL .env.production | cut -d= -f2- | tr -d '\"') bunx prisma migrate deploy",
     "db:reset": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma migrate reset",
+    "db:reset:prod": "DATABASE_URL=$(grep DATABASE_URL .env.production | cut -d= -f2- | tr -d '\"') bunx prisma migrate reset",
     "db:push": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma db push",
     "db:push:prod": "DATABASE_URL=$(grep DATABASE_URL .env.production | cut -d= -f2- | tr -d '\"') bunx prisma db push",
     "db:seed": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma db seed",
