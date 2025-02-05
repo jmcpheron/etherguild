@@ -4,22 +4,25 @@ import { deleteQuest } from "@/app/api/quests/[id]/actions/delete";
 import { NextRequest } from "next/server";
 
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  return getQuest(params.id);
+  const id = (await params).id;
+  return getQuest(id);
 }
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  return updateQuest(request, params.id);
+  const id = (await params).id;
+  return updateQuest(request, id);
 }
 
 export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  return deleteQuest(params.id);
+  const id = (await params).id;
+  return deleteQuest(id);
 }

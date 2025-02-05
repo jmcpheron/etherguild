@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development next dev --turbopack",
-    "build": "prisma migrate deploy && prisma generate && next build",
+    "build": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma migrate deploy && DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma generate && next build",
     "db:migrate": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma migrate dev",
     "db:migrate:prod": "DATABASE_URL=$(grep DATABASE_URL .env.production | cut -d= -f2- | tr -d '\"') bunx prisma migrate deploy",
     "db:reset": "DATABASE_URL=$(grep DATABASE_URL .env.development | cut -d= -f2- | tr -d '\"') bunx prisma migrate reset",
