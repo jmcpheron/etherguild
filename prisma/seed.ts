@@ -14,10 +14,33 @@ async function main() {
         progress: 0,
       },
       {
+        title: "Build ethismoney.xyz",
+        description: "Build a website that makes the case that ETH is money.",
+        isMain: false,
+        isActive: true,
+        progress: 0,
+      },
+      {
+        title: "Community funding event",
+        description:
+          "Host a community funding event to raise funds for the Ether Guild.",
+        isMain: false,
+        isActive: true,
+        progress: 0,
+      },
+      {
+        title: "Ether Guild Pledge",
+        description:
+          "Introduce a new pledge for Ethereum aligned projects to join the guild.",
+        isMain: false,
+        isActive: true,
+        progress: 0,
+      },
+      {
         title: "Get Base to sign the Ether Guild Pledge",
         description:
           "Work with Base to support and sign the Ether Guild Pledge",
-        isMain: true,
+        isMain: false,
         isActive: false,
         progress: 0,
       },
@@ -26,7 +49,7 @@ async function main() {
         description:
           "Campaign for the Ethereum logo to be included in the Unicode standard",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 30,
       },
       {
@@ -34,7 +57,7 @@ async function main() {
         description:
           "Create and promote an engaging animation about Ethereum to reach 1M views",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
@@ -42,7 +65,7 @@ async function main() {
         description:
           "Develop and deploy an AI model focused on Ethereum as a monetary system",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
@@ -51,14 +74,14 @@ async function main() {
         description:
           "Write and pitch an opinion piece about Ethereum to the WSJ",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
         title: "Share the latest post from Etherealize",
         description: "Help spread awareness by sharing Etherealize content",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
@@ -66,28 +89,28 @@ async function main() {
         description:
           "Support Ethereum core development through Protocol Guild donations",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
         title: "Add a new dataset to ethismoney.xyz",
         description: "Contribute data to support the ETH is money narrative",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
         title: "Trend the hashtag #EthIsMoney",
         description: "Coordinate social media campaign to trend #EthIsMoney",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
       {
         title: "Raise 3 ETH for an Ether Guild booth at Devcon",
         description: "Fundraise to establish Ether Guild presence at Devcon",
         isMain: false,
-        isActive: true,
+        isActive: false,
         progress: 0,
       },
     ],

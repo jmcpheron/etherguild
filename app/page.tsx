@@ -17,7 +17,9 @@ export default function Home() {
   const activeQuests = quests.filter(
     (quest) => quest.isActive && !quest.isMain
   );
-  const proposedQuests = quests.filter((quest) => !quest.isActive);
+  const proposedQuests = quests.filter(
+    (quest) => !quest.isActive && !quest.isMain
+  );
 
   return (
     <main className="flex min-h-screen flex-col">
