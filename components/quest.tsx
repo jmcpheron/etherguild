@@ -62,7 +62,7 @@ export function Quest({ id }: QuestProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            View Project ↗
+                            Quest Complete ↗
                           </a>
                         </Button>
                       ) : (
@@ -100,7 +100,7 @@ export function Quest({ id }: QuestProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            View Project ↗
+                            Quest Complete ↗
                           </a>
                         </Button>
                       ) : (
