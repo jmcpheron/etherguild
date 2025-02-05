@@ -10,15 +10,15 @@ async function main() {
         description:
           "Fund the initial development and launch of Ether Guild, a decentralized platform for coordinating Ethereum public goods initiatives.",
         isMain: true,
-        isActive: false,
-        progress: 0,
+        isActive: true,
+        progress: 90,
       },
       {
         title: "Build ethismoney.xyz",
         description: "Build a website that makes the case that ETH is money.",
         isMain: false,
         isActive: true,
-        progress: 0,
+        progress: 100,
       },
       {
         title: "Community funding event",
@@ -26,7 +26,7 @@ async function main() {
           "Host a community funding event to raise funds for the Ether Guild.",
         isMain: false,
         isActive: true,
-        progress: 0,
+        progress: 80,
       },
       {
         title: "Ether Guild Pledge",
@@ -34,7 +34,7 @@ async function main() {
           "Introduce a new pledge for Ethereum aligned projects to join the guild.",
         isMain: false,
         isActive: true,
-        progress: 0,
+        progress: 60,
       },
       {
         title: "Get Base to sign the Ether Guild Pledge",
