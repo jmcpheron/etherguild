@@ -1,38 +1,30 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
+import { type Quest } from "@/types/quest";
 
-const PROPOSED_QUESTS = [
-  { title: "Get Base to sign the Ether Guild Pledge", status: "Coming Soon" },
-  { title: "Get the Ethereum logo accepted as a unicode symbol" },
-  { title: "Produce a short Ethereum animation that hits 1M views" },
-  { title: "Launch an AI agent trained on the knowledge that ETH is money" },
-  {
-    title: "Get an Ethereum opinion piece published in the Wall Street Journal",
-  },
-  { title: "Share the latest post from Etherealize" },
-  { title: "Donate to Protocol Guild" },
-  { title: "Add a new dataset to ethismoney.xyz" },
-  { title: "Trend the hashtag #EthIsMoney" },
-  { title: "Raise 3 ETH for an Ether Guild booth at Devcon" },
-];
+interface ProposedQuestsProps {
+  quests: Quest[];
+}
 
-export function ProposedQuests() {
+export function ProposedQuests({ quests }: ProposedQuestsProps) {
   return (
     <div className="max-w-7xl mx-auto w-full px-4">
       <h2 className="text-3xl font-bold mb-8">Proposed Quests</h2>
       <div>
         <Table>
           <TableBody>
-            {PROPOSED_QUESTS.map((quest) => (
+            {quests.map((quest) => (
               <TableRow
-                key={quest.title}
+                key={quest.id}
                 className="hover:bg-muted/50 border-b last:border-0"
               >
                 <TableCell className="font-medium py-4">
                   {quest.title}
-                  {quest.status && (
+                  {!quest.isActive && (
                     <span className="ml-2 text-sm text-slate-500">
-                      ({quest.status})
+                      (Coming Soon)
                     </span>
                   )}
                 </TableCell>

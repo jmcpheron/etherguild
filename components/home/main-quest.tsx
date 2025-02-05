@@ -1,15 +1,14 @@
 import { Quest } from "@/components/quest";
+import { type Quest as QuestType } from "@/types/quest";
 
-export function MainQuest() {
+interface MainQuestProps {
+  quest: QuestType;
+}
+
+export function MainQuest({ quest }: MainQuestProps) {
   return (
-    <div className="relative px-4 max-w-7xl mx-auto w-full">
-      <Quest
-        isMain
-        title="Launch Ether Guild"
-        description="Fund the initial development and launch of Ether Guild, a decentralized platform for coordinating Ethereum public goods initiatives."
-        link="/quest/main"
-        percent={90}
-      />
+    <div className="max-w-7xl mx-auto w-full px-4">
+      <Quest id={quest.id} />
     </div>
   );
 }

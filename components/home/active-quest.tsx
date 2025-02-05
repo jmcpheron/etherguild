@@ -1,12 +1,10 @@
 import { Quest } from "@/components/quest";
+import { type Quest as QuestType } from "@/types/quest";
 
 interface ActiveQuestProps {
-  title: string;
-  description: string;
-  link: string;
-  percent: number;
+  quest: QuestType;
 }
 
-export function ActiveQuest(props: ActiveQuestProps) {
-  return <Quest {...props} />;
+export function ActiveQuest({ quest }: ActiveQuestProps) {
+  return <Quest id={quest.id} />;
 }

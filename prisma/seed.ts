@@ -6,6 +6,14 @@ async function main() {
   await prisma.quest.createMany({
     data: [
       {
+        title: "Launch Ether Guild",
+        description:
+          "Fund the initial development and launch of Ether Guild, a decentralized platform for coordinating Ethereum public goods initiatives.",
+        isMain: true,
+        isActive: false,
+        progress: 0,
+      },
+      {
         title: "Get Base to sign the Ether Guild Pledge",
         description:
           "Work with Base to support and sign the Ether Guild Pledge",

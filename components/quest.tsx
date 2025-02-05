@@ -1,17 +1,24 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { QuestProps } from "@/types/quest";
+import { useQuest } from "@/app/hooks/useQuests";
 
-export function Quest({
-  title,
-  description,
-  //link,
-  percent,
-  isMain = false,
-}: QuestProps) {
-  const isComplete = percent === 100;
+interface QuestProps {
+  id: string;
+}
+
+export function Quest({ id }: QuestProps) {
+  const { data: quest, isLoading, error } = useQuest(id);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading quest</div>;
+  if (!quest) return null;
+
+  const { title, description, progress, isMain } = quest;
+  const isComplete = progress === 100;
 
   return (
     <div className="relative">
@@ -77,12 +84,12 @@ export function Quest({
 
         <div className="mt-6">
           <Progress
-            value={percent}
+            value={progress}
             className="h-4 bg-slate-200 dark:bg-slate-800"
           >
             <div
               className="h-full bg-primary"
-              style={{ width: `${percent}%` }}
+              style={{ width: `${progress}%` }}
             />
           </Progress>
         </div>
