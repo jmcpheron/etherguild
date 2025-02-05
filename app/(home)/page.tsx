@@ -1,7 +1,7 @@
 import { Hero } from "@/components/hero";
 import { MainQuest } from "@/components/home/main-quest";
 import { ActiveQuests } from "@/components/home/active-quests";
-import { PotentialQuests } from "@/components/home/potential-quests";
+import { ProposedQuests } from "@/components/home/proposed-quests";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         <ActiveQuests />
       </div>
       <div className="mt-16 mb-16">
-        <PotentialQuests />
+        <ProposedQuests />
       </div>
     </main>
   );

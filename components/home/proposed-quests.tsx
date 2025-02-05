@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 
-const POTENTIAL_QUESTS = [
+const PROPOSED_QUESTS = [
   { title: "Get Base to sign the Ether Guild Pledge", status: "Coming Soon" },
   { title: "Get the Ethereum logo accepted as a unicode symbol" },
   { title: "Produce a short Ethereum animation that hits 1M views" },
@@ -16,14 +16,14 @@ const POTENTIAL_QUESTS = [
   { title: "Raise 3 ETH for an Ether Guild booth at Devcon" },
 ];
 
-export function PotentialQuests() {
+export function ProposedQuests() {
   return (
     <div className="max-w-7xl mx-auto w-full px-4">
-      <h2 className="text-3xl font-bold mb-8">Potential Quests</h2>
+      <h2 className="text-3xl font-bold mb-8">Proposed Quests</h2>
       <div>
         <Table>
           <TableBody>
-            {POTENTIAL_QUESTS.map((quest) => (
+            {PROPOSED_QUESTS.map((quest) => (
               <TableRow
                 key={quest.title}
                 className="hover:bg-muted/50 border-b last:border-0"

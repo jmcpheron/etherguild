@@ -2,14 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
-interface QuestProps {
-  title: string;
-  description: string;
-  link: string;
-  percent: number;
-  isMain?: boolean;
-}
+import { QuestProps } from "@/types/quest";
 
 export function Quest({
   title,
