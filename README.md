@@ -1,12 +1,10 @@
-# Ether Guild
+![Ether Guild](public/image/ether-guild-heading.png)
 
 Next.js app for [etherguild.xyz](https://etherguild.xyz).
 
 Also see
 [etherguild-contracts](https://github.com/its-everdred/etherguild-protocol) and
 [etherguild-agent](https://github.com/its-everdred/etherguild-agent).
-
-![Ether Guild Hero](public/image/ether-guild-heading.png)
 
 ## Development
 
