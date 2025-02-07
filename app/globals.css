@@ -33,6 +33,18 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+
+    .default-light,
+    .default-dark {
+      /* --ock-text-primary: rgb(162 58 34); */
+      /* --ock-text-inverse: rgb(162 58 34); */
+
+      --ock-bg-primary: rgb(162 58 34);
+      --ock-bg-primary-hover: rgb(122 48 24);
+      --ock-bg-primary-active: rgb(182 78 54);
+
+      /* --ock-line-primary: rgb(162 58 34); */
+    }
   }
   .dark {
     --background: 240 10% 3.9%;

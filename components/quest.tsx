@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useQuest } from "@/app/hooks/useQuests";
 import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
+import TransactionComponents from "./wallet/transaction";
+import type { Quest } from "@/types/quest";
+import { call } from "./wallet/call";
 
-interface QuestProps {
-  id: string;
-}
+type QuestProps = Pick<Quest, "id"> & Partial<Omit<Quest, "id">>;
 
 export function Quest({ id }: QuestProps) {
   return (
@@ -81,12 +82,7 @@ function QuestContent({ id }: QuestProps) {
                         </Button>
                       )
                     ) : (
-                      <Button
-                        size="lg"
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                      >
-                        Fund
-                      </Button>
+                      <TransactionComponents text="Fund" call={call} />
                     )}
                   </div>
                   <div className="col-span-1 w-full md:w-32 md:flex md:justify-end">
@@ -119,12 +115,7 @@ function QuestContent({ id }: QuestProps) {
                         </Button>
                       )
                     ) : (
-                      <Button
-                        size="lg"
-                        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                      >
-                        Fund
-                      </Button>
+                      <TransactionComponents text="Fund" call={call} />
                     )}
                   </div>
                   <div className="col-span-1">
