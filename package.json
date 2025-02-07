@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "env:dev": "dotenv -e .env.development",
-    "env:prod": "bun run env:prod",
+    "env:prod": "dotenv -e .env.production",
     "db:migrate": "bun run env:dev bunx prisma migrate dev",
     "db:migrate:prod": "bun run env:prod bunx prisma migrate deploy",
     "db:reset": "bun run env:dev bunx prisma migrate reset",
