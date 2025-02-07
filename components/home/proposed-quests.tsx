@@ -3,8 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { type Quest } from "@/types/quest";
-import { Suspense } from "react";
-import { ProposedQuestsSkeleton } from "../skeletons/proposed-quests-skeleton";
 
 interface ProposedQuestsProps {
   quests: Quest[];

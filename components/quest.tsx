@@ -64,7 +64,7 @@ function QuestContent({ id }: QuestProps) {
                       link ? (
                         <Button
                           size="lg"
-                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                          className="w-full bg-aa482f text-primary-foreground hover:bg-primary/90"
                           asChild
                         >
                           <a
@@ -72,12 +72,12 @@ function QuestContent({ id }: QuestProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Quest Complete ↗
+                            Complete! ↗
                           </a>
                         </Button>
                       ) : (
                         <Button size="lg" className="w-full" disabled>
-                          Quest Complete!
+                          Complete!
                         </Button>
                       )
                     ) : (
@@ -110,12 +110,12 @@ function QuestContent({ id }: QuestProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Quest Complete ↗
+                            Complete!
                           </a>
                         </Button>
                       ) : (
                         <Button size="lg" className="w-full" disabled>
-                          Quest Complete!
+                          Complete!
                         </Button>
                       )
                     ) : (
