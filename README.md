@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ether Guild
 
-## Getting Started
+Next.js app for [etherguild.xyz](https://etherguild.xyz).
 
-First, run the development server:
+Also see
+[etherguild-contracts](https://github.com/its-everdred/etherguild-protocol) and
+[etherguild-agent](https://github.com/its-everdred/etherguild-agent).
+
+![Ether Guild Hero](public/image/ether-guild-heading.png)
+
+## Development
+
+Running the app locally requires [bun](https://bun.sh/docs/installation) and [docker](https://www.docker.com/get-started/).
+
+### Initial set up:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+bun install
+
+# Setup environment
+cp .env.example .env.development
+
+# Start Postgres
+docker compose up -d
+
+# Setup database
+bun prisma migrate dev
+bun prisma generate
+
+# Generate example quests
+bun prisma db seed
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Run the App:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+bun install
+bun run build
+bun run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## Join us!
 
-To learn more about Next.js, take a look at the following resources:
+Ether Guild is a Wyoming Non-Profit Corporation applying for 501(c)(3) status. We are a group of hyper-focused ETH supporters, working to elevate ETH, the money, in service of Ethereum, the computer.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Volunteers interested in executing this mission can reach out at [info@etherguild.xyz](mailto:info@etherguild.xyz).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Donors interested in funding this mission can reach out at [donate@etherguild.xyz](mailto:donate@etherguild.xyz).

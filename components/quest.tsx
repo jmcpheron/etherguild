@@ -1,19 +1,29 @@
 "use client";
 
+import { Suspense } from "react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useQuest } from "@/app/hooks/useQuests";
+import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
 
 interface QuestProps {
   id: string;
 }
 
 export function Quest({ id }: QuestProps) {
+  return (
+    <Suspense fallback={<QuestSkeleton />}>
+      <QuestContent id={id} />
+    </Suspense>
+  );
+}
+
+function QuestContent({ id }: QuestProps) {
   const { data: quest, isLoading, error } = useQuest(id);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <QuestSkeleton />;
   if (error) return <div>Error loading quest</div>;
   if (!quest) return null;
 
@@ -54,7 +64,7 @@ export function Quest({ id }: QuestProps) {
                       link ? (
                         <Button
                           size="lg"
-                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                          className="w-full bg-aa482f text-primary-foreground hover:bg-primary/90"
                           asChild
                         >
                           <a
@@ -62,12 +72,12 @@ export function Quest({ id }: QuestProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Quest Complete ↗
+                            Complete! ↗
                           </a>
                         </Button>
                       ) : (
                         <Button size="lg" className="w-full" disabled>
-                          Quest Complete!
+                          Complete!
                         </Button>
                       )
                     ) : (
@@ -100,12 +110,12 @@ export function Quest({ id }: QuestProps) {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Quest Complete ↗
+                            Complete!
                           </a>
                         </Button>
                       ) : (
                         <Button size="lg" className="w-full" disabled>
-                          Quest Complete!
+                          Complete!
                         </Button>
                       )
                     ) : (

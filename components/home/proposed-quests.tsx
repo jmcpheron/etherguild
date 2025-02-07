@@ -22,11 +22,6 @@ export function ProposedQuests({ quests }: ProposedQuestsProps) {
               >
                 <TableCell className="font-medium py-4">
                   {quest.title}
-                  {/* {!quest.isActive && (
-                    <span className="ml-2 text-sm text-slate-500">
-                      (Coming Soon)
-                    </span>
-                  )} */}
                 </TableCell>
                 <TableCell className="text-right py-4">
                   <Button variant="outline" size="sm">

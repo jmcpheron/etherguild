@@ -1,10 +1,11 @@
 "use client";
 
-import { Hero } from "@/components/hero";
-import { MainQuest } from "@/components/home/main-quest";
-import { ActiveQuests } from "@/components/home/active-quests";
-import { ProposedQuests } from "@/components/home/proposed-quests";
 import { useQuests } from "@/app/hooks/useQuests";
+import { Hero } from "@/components/hero";
+import { ProposedQuests } from "@/components/home/proposed-quests";
+import { Quest } from "@/components/quest";
+import { ProposedQuestsSkeleton } from "@/components/skeletons/proposed-quests-skeleton";
+import { Suspense } from "react";
 
 export default function Home() {
   const { data: quests, isLoading, error } = useQuests();
@@ -26,13 +27,26 @@ export default function Home() {
         splashText="Fund ETH Initiatives"
       />
       <div className="-mt-[15%] relative z-10">
-        {mainQuest && <MainQuest quest={mainQuest} />}
+        {mainQuest && (
+          <div className="max-w-7xl mx-auto w-full px-4">
+            <Quest key={mainQuest.id} id={mainQuest.id} />
+          </div>
+        )}
       </div>
       <div className="mt-16">
-        <ActiveQuests quests={activeQuests} />
+        <div className="max-w-7xl mx-auto w-full px-4">
+          <h2 className="text-3xl font-bold mb-8">Active Quests</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {activeQuests.map((quest) => (
+              <Quest key={quest.id} id={quest.id} />
+            ))}
+          </div>
+        </div>
       </div>
       <div className="mt-16 mb-16">
-        <ProposedQuests quests={proposedQuests} />
+        <Suspense fallback={<ProposedQuestsSkeleton />}>
+          <ProposedQuests quests={proposedQuests} />
+        </Suspense>
       </div>
     </main>
   );
