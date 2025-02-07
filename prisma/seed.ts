@@ -6,15 +6,15 @@ async function main() {
   await prisma.quest.createMany({
     data: [
       {
-        title: "Launch Ether Guild",
+        title: "Launch etherguild.xyz",
         description:
-          "Fund the initial development and launch of Ether Guild, a decentralized platform for coordinating Ethereum public goods initiatives.",
+          "Build and launch the Ether Guild website, a platform for funding and supporting the Ethereum commons.",
         isMain: true,
         isActive: true,
         progress: 90,
       },
       {
-        title: "Build ethismoney.xyz",
+        title: "Launch ethismoney.xyz",
         description: "Build a website that makes the case that ETH is money.",
         isMain: false,
         isActive: true,
@@ -22,9 +22,9 @@ async function main() {
         link: "https://ethismoney.xyz",
       },
       {
-        title: "Community funding event",
+        title: "Funding Event",
         description:
-          "Host a community funding event to raise funds for the Ether Guild.",
+          "Host a community funding event to raise ETH for Ether Guild.",
         isMain: false,
         isActive: true,
         progress: 80,
@@ -32,7 +32,7 @@ async function main() {
       {
         title: "Ether Guild Pledge",
         description:
-          "Introduce a new pledge for Ethereum aligned projects to join the guild.",
+          "Announce a new pledge for Ethereum projects to signal ETH support.",
         isMain: false,
         isActive: true,
         progress: 60,
