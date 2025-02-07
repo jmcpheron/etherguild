@@ -29,6 +29,7 @@ export default function TransactionComponents({
 
   return address ? (
     <Transaction
+      className="gap-0"
       chainId={BASE_SEPOLIA_CHAIN_ID}
       calls={[call]}
       onStatus={handleOnStatus}
