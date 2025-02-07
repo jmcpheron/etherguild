@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ModeToggle } from "./mode-toggle";
+import { WalletComponents } from "@/components/wallet/wallet";
 
 export function Navbar() {
   return (
@@ -13,7 +14,12 @@ export function Navbar() {
         />
         <span className="font-bold text-white">Ether Guild</span>
       </div>
-      <ModeToggle />
+
+      <div className="flex items-center gap-4">
+        <WalletComponents />
+
+        <ModeToggle />
+      </div>
     </nav>
   );
 }

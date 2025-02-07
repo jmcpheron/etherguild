@@ -21,6 +21,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "^0.36.9",
     "@neondatabase/serverless": "^0.10.4",
     "@prisma/client": "6.3.0",
     "@radix-ui/react-dropdown-menu": "^2.1.5",
