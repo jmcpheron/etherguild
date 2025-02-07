@@ -1,19 +1,29 @@
 "use client";
 
+import { Suspense } from "react";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useQuest } from "@/app/hooks/useQuests";
+import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
 
 interface QuestProps {
   id: string;
 }
 
 export function Quest({ id }: QuestProps) {
+  return (
+    <Suspense fallback={<QuestSkeleton />}>
+      <QuestContent id={id} />
+    </Suspense>
+  );
+}
+
+function QuestContent({ id }: QuestProps) {
   const { data: quest, isLoading, error } = useQuest(id);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <QuestSkeleton />;
   if (error) return <div>Error loading quest</div>;
   if (!quest) return null;
 

@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { type Quest } from "@/types/quest";
+import { Suspense } from "react";
+import { ProposedQuestsSkeleton } from "../skeletons/proposed-quests-skeleton";
 
 interface ProposedQuestsProps {
   quests: Quest[];
@@ -22,11 +24,6 @@ export function ProposedQuests({ quests }: ProposedQuestsProps) {
               >
                 <TableCell className="font-medium py-4">
                   {quest.title}
-                  {/* {!quest.isActive && (
-                    <span className="ml-2 text-sm text-slate-500">
-                      (Coming Soon)
-                    </span>
-                  )} */}
                 </TableCell>
                 <TableCell className="text-right py-4">
                   <Button variant="outline" size="sm">
