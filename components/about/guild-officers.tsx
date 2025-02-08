@@ -1,6 +1,14 @@
 import Image from "next/image";
 
-const officers = [
+// Define the interface
+export interface Officer {
+  name: string;
+  house: string;
+  logo: string;
+}
+
+// Export the officers array with type
+export const officers: Officer[] = [
   {
     name: "Ryan Sean Adams",
     house: "Bankless",

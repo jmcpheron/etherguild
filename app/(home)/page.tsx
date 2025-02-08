@@ -6,6 +6,7 @@ import { ProposedQuests } from "@/components/home/proposed-quests";
 import { Quest } from "@/components/quest";
 import { ProposedQuestsSkeleton } from "@/components/skeletons/proposed-quests-skeleton";
 import { Suspense } from "react";
+import { OfficerLogos } from "@/components/about/officer-logos";
 
 export default function Home() {
   const { data: quests, isLoading, error } = useQuests();
@@ -47,6 +48,9 @@ export default function Home() {
         <Suspense fallback={<ProposedQuestsSkeleton />}>
           <ProposedQuests quests={proposedQuests} />
         </Suspense>
+      </div>
+      <div className="container mx-auto px-4 py-4">
+        <OfficerLogos />
       </div>
     </main>
   );
