@@ -1,8 +1,8 @@
 import prisma from "@/lib/db";
+import { Quest } from "@prisma/client";
 import { NextResponse } from "next/server";
-import { Quest } from "@/types/quest";
 
-type CreateQuestRequest = Pick<Quest, "title" | "description"> & {
+type CreateQuestRequest = Pick<Quest, "title" | "description" | "summary"> & {
   isMain?: boolean;
   isActive?: boolean;
   progress?: number;
@@ -20,6 +20,7 @@ function validateRequest(request: Request): Promise<CreateQuestRequest> {
     return {
       title: body.title,
       description: body.description,
+      summary: body.summary || "",
       isMain: body.isMain || false,
       isActive: body.isActive || false,
       progress: body.progress || 0,

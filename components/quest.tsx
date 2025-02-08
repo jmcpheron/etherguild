@@ -8,8 +8,8 @@ import Image from "next/image";
 import { useQuest } from "@/app/hooks/useQuests";
 import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
 import TransactionComponents from "./wallet/transaction";
-import type { Quest } from "@/types/quest";
 import { call } from "./wallet/call";
+import type { Quest } from "@prisma/client";
 
 type QuestProps = Pick<Quest, "id"> & Partial<Omit<Quest, "id">>;
 
@@ -28,7 +28,7 @@ function QuestContent({ id }: QuestProps) {
   if (error) return <div>Error loading quest</div>;
   if (!quest) return null;
 
-  const { title, description, progress, isMain, link } = quest;
+  const { title, summary, progress, isMain, link } = quest;
   const isComplete = progress === 100;
 
   return (
@@ -51,7 +51,7 @@ function QuestContent({ id }: QuestProps) {
 
           <div className="flex flex-col md:flex-row gap-8">
             <p className="text-slate-600 dark:text-slate-300 md:w-3/5">
-              {description}
+              {summary}
             </p>
             <div
               className={`grid grid-cols-2 gap-4 md:flex md:flex-col md:w-2/5 ${

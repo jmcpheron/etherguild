@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
-import { type Quest } from "@/types/quest";
+import { Quest } from "@prisma/client";
 
 interface ProposedQuestsProps {
   quests: Quest[];

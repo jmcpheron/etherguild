@@ -10,6 +10,7 @@ datasource db {
 model Quest {
   id          String   @id @default(cuid())
   title       String
+  summary     String   @default("")
   description String
   progress    Int      @default(0)
   isMain      Boolean  @default(false)
