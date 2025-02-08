@@ -48,7 +48,7 @@ export default function About() {
           {/* Guild Treasury */}
           <section className="bg-accent/20 rounded-xl p-8 hover:bg-accent/30 transition-colors duration-300">
             <h2 className="text-2xl font-bold mb-4 text-center">Guild Treasury</h2>
-            <p className="text-lg text-center max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg max-w-3xl mx-auto text-center leading-relaxed">
               The Guild Treasury is a vault controlled by Guild officers with one purpose:
               Fund initiatives supporting the furtherance of ETH as an ecosystem.
             </p>
