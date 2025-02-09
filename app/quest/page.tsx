@@ -6,7 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import TransactionComponents from "@/components/wallet/transaction";
-import { call } from "@/components/wallet/call";
+import { callFund } from "@/components/wallet/call";
 
 export default function QuestPage() {
   return (
@@ -36,7 +36,9 @@ export default function QuestPage() {
               and supporting the Ethereum commons.
             </p>
             <div className="flex justify-end mb-4">
-              <TransactionComponents text="Fund" call={call} />
+              <div className="col-span-2 sm:col-span-1 lg:w-1/3 xl:w-1/4">
+                <TransactionComponents text="Fund" call={callFund(null)} />
+              </div>
             </div>
             <Progress value={90} className="h-2" />
           </Card>
@@ -100,7 +102,7 @@ export default function QuestPage() {
                   •{" "}
                   <strong>
                     <Link href="https://github.com/its-everdred/etherguild-agent">
-                      Guild Officer Ethan
+                      @GuildOfficerEthan
                     </Link>
                   </strong>{" "}
                   - an onchain agent that can create and modify quests based on
