@@ -7,25 +7,35 @@ import {
   TransactionStatusAction,
   TransactionStatusLabel,
 } from "@coinbase/onchainkit/transaction";
-import { ConnectWallet, Wallet } from "@coinbase/onchainkit/wallet";
+import {
+  ConnectWallet,
+  ConnectWalletText,
+  Wallet,
+} from "@coinbase/onchainkit/wallet";
 import { useCallback } from "react";
 import { useAccount } from "wagmi";
+import { cn } from "@/lib/utils";
 
 const BASE_SEPOLIA_CHAIN_ID = 84532;
 
 export default function TransactionComponents({
   text,
   call,
+  className,
 }: {
   text: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   call: any;
+  className?: string;
 }) {
   const { address } = useAccount();
 
   const handleOnStatus = useCallback((status: LifecycleStatus) => {
     console.log("LifecycleStatus", status);
   }, []);
+
+  const buttonStyle =
+    "!h-12 !px-8 !py-3 !rounded-md !text-base !font-medium !bg-primary hover:!bg-primary/90 !text-white [&_.ock-text-inverse]:!text-white !min-w-[153px] !inline-flex !items-center !justify-center";
 
   return address ? (
     <Transaction
@@ -34,7 +44,10 @@ export default function TransactionComponents({
       calls={[call]}
       onStatus={handleOnStatus}
     >
-      <TransactionButton className="py-2" text={text} />
+      <TransactionButton
+        className={cn(buttonStyle, "text-base font-normal", className)}
+        text={text}
+      />
       <TransactionStatus>
         <TransactionStatusLabel />
         <TransactionStatusAction />
@@ -42,9 +55,10 @@ export default function TransactionComponents({
     </Transaction>
   ) : (
     <Wallet>
-      <ConnectWallet>
-        <Avatar className="h-6 w-6" />
-        <Name />
+      <ConnectWallet className={cn(buttonStyle, className)}>
+        <ConnectWalletText className="text-base font-normal">
+          Fund
+        </ConnectWalletText>
       </ConnectWallet>
     </Wallet>
   );

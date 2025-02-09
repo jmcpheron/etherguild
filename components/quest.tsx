@@ -58,11 +58,7 @@ function QuestContent({ id }: QuestProps) {
                 <div>
                   {isComplete ? (
                     link ? (
-                      <Button
-                        variant="default"
-                        size="lg"
-                        asChild
-                      >
+                      <Button variant="default" size="lg" asChild>
                         <a
                           href={link}
                           target="_blank"
@@ -72,29 +68,18 @@ function QuestContent({ id }: QuestProps) {
                         </a>
                       </Button>
                     ) : (
-                      <Button
-                        variant="default"
-                        size="lg"
-                        disabled
-                      >
+                      <Button variant="default" size="lg" disabled>
                         Complete!
                       </Button>
                     )
                   ) : (
                     <div className="w-full">
-                      <TransactionComponents
-                        text="Fund"
-                        call={call}
-                        className="w-full h-11 px-8 rounded-md text-base"
-                      />
+                      <TransactionComponents text="Fund" call={call} />
                     </div>
                   )}
                 </div>
                 <div>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                  >
+                  <Button variant="outline" size="lg">
                     Read More
                   </Button>
                 </div>
@@ -135,20 +120,12 @@ function QuestContent({ id }: QuestProps) {
                     )
                   ) : (
                     <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
-                      <TransactionComponents
-                        text="Fund"
-                        call={call}
-                        className="w-full h-11 px-8 rounded-md text-base"
-                      />
+                      <TransactionComponents text="Fund" call={call} />
                     </div>
                   )}
                 </div>
                 <div className="col-span-2 sm:col-span-1">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full"
-                  >
+                  <Button variant="outline" size="lg" className="w-full">
                     Read More
                   </Button>
                 </div>

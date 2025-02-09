@@ -12,28 +12,28 @@ export const officers: Officer[] = [
   {
     name: "Ryan Sean Adams",
     house: "Bankless",
-    logo: "/image/bankless-logo.png"
+    logo: "/image/bankless-logo.png",
   },
   {
     name: "Anthony Sassano",
     house: "The Daily Gwei",
-    logo: "/image/gwei-logo.png"
+    logo: "/image/gwei-logo.png",
   },
   {
     name: "Tobias Schreier",
     house: "growthepie",
-    logo: "/image/growthepie-logo.png"
+    logo: "/image/growthepie-logo.png",
   },
   {
     name: "Grant Hummer",
     house: "Etherealize",
-    logo: "/image/etheralize-logo.png"
+    logo: "/image/etheralize-logo.png",
   },
   {
     name: "Everdred",
     house: "Metal",
-    logo: "/image/metal-logo.png"
-  }
+    logo: "/image/metal-logo.png",
+  },
 ];
 
 export function GuildOfficers() {
@@ -42,7 +42,8 @@ export function GuildOfficers() {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">Guild Officers</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Led by distinguished houses across the Ethereum ecosystem, our officers guide the Guild's mission and strategy.
+          Led by distinguished houses across the Ethereum ecosystem, our
+          officers guide the Guild&apos;s mission and strategy.
         </p>
       </div>
 
@@ -62,14 +63,21 @@ export function GuildOfficers() {
                 height={120}
                 className="rounded-full shadow-md"
               />
-              <div className="absolute inset-0 rounded-full ring-2 ring-primary/20
-                            group-hover:ring-primary/40 transition-all duration-300" />
+              <div
+                className="absolute inset-0 rounded-full ring-2 ring-primary/20
+                            group-hover:ring-primary/40 transition-all duration-300"
+              />
             </div>
 
             <div className="space-y-2">
-              <h3 className="font-bold text-lg tracking-tight">{officer.name}</h3>
+              <h3 className="font-bold text-lg tracking-tight">
+                {officer.name}
+              </h3>
               <p className="text-sm text-muted-foreground">
-                of house <span className="font-medium text-primary">{officer.house}</span>
+                of house{" "}
+                <span className="font-medium text-primary">
+                  {officer.house}
+                </span>
               </p>
             </div>
           </div>
