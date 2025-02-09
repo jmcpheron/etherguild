@@ -2,37 +2,49 @@ import Image from "next/image";
 
 // Define the interface
 export interface Officer {
-  name: string;
   house: string;
+  social: string;
+  website: string;
   logo: string;
+  person: string;
 }
 
 // Export the officers array with type
 export const officers: Officer[] = [
   {
-    name: "Ryan Sean Adams",
     house: "Bankless",
+    social: "https://x.com/RyanSAdams",
+    website: "https://www.bankless.com/",
     logo: "/image/bankless-logo.png",
+    person: "Ryan Adams",
   },
   {
-    name: "Anthony Sassano",
     house: "The Daily Gwei",
+    social: "https://x.com/sassal0x",
+    website: "https://thedailygwei.substack.com/",
     logo: "/image/gwei-logo.png",
+    person: "Anthony Sassano",
   },
   {
-    name: "Tobias Schreier",
-    house: "growthepie",
+    house: "GrowthePie",
+    social: "https://x.com/tobschcom",
+    website: "https://www.growthepie.xyz/",
     logo: "/image/growthepie-logo.png",
+    person: "Tobias",
   },
   {
-    name: "Grant Hummer",
     house: "Etherealize",
-    logo: "/image/etheralize-logo.png",
+    social: "https://x.com/gphummer",
+    website: "https://www.etherealize.io/",
+    logo: "/image/etherealize-logo.png",
+    person: "Grant Hummer",
   },
   {
-    name: "Everdred",
     house: "Metal",
+    social: "https://x.com/its_everdred",
+    website: "https://metal.build/",
     logo: "/image/metal-logo.png",
+    person: "Everdred",
   },
 ];
 
@@ -55,28 +67,46 @@ export function GuildOfficers() {
                      hover:shadow-lg hover:-translate-y-1"
           >
             <div className="relative mb-4 transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src={officer.logo}
-                alt={`${officer.house} logo`}
-                width={120}
-                height={120}
-                className="rounded-full shadow-md"
-              />
-              <div
-                className="absolute inset-0 rounded-full ring-2 ring-primary/20
-                            group-hover:ring-primary/40 transition-all duration-300"
-              />
+              <a
+                href={officer.website}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={officer.logo}
+                  alt={`${officer.house} logo`}
+                  width={120}
+                  height={120}
+                  className="rounded-full shadow-md"
+                />
+                <div
+                  className="absolute inset-0 rounded-full ring-2 ring-primary/20
+                              group-hover:ring-primary/40 transition-all duration-300"
+                />
+              </a>
             </div>
 
             <div className="space-y-2">
               <h3 className="font-bold text-lg tracking-tight">
-                {officer.name}
+                <a
+                  href={officer.social}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  {officer.person}
+                </a>
               </h3>
               <p className="text-sm text-muted-foreground">
                 of house{" "}
-                <span className="font-medium text-primary">
+                <a
+                  href={officer.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary hover:text-primary/80 transition-colors"
+                >
                   {officer.house}
-                </span>
+                </a>
               </p>
             </div>
           </div>
