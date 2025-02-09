@@ -1,9 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import TransactionComponents from "@/components/wallet/transaction";
+import { call } from "@/components/wallet/call";
 
 export default function QuestPage() {
   return (
@@ -32,9 +35,9 @@ export default function QuestPage() {
               Build and launch the Ether Guild website, a platform for funding
               and supporting the Ethereum commons.
             </p>
-            <Button className="bg-[#aa482f] hover:bg-[#aa482f]/90 text-white mb-8">
-              Fund
-            </Button>
+            <div className="flex justify-end mb-4">
+              <TransactionComponents text="Fund" call={call} />
+            </div>
             <Progress value={90} className="h-2" />
           </Card>
         </div>
@@ -55,6 +58,8 @@ export default function QuestPage() {
                 Phase 3: Launch & Community Engagement
               </li>
             </ul>
+
+            <Progress value={66} className="h-2 mt-6" />
           </Card>
         </div>
 

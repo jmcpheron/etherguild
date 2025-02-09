@@ -18,4 +18,5 @@ model Quest {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   link        String?
+  contractAddress String?
 }
