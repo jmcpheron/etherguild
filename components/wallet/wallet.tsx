@@ -1,30 +1,16 @@
-import {
-  Address,
-  Avatar,
-  EthBalance,
-  Identity,
-  Name,
-} from "@coinbase/onchainkit/identity";
-import {
-  ConnectWallet,
-  Wallet,
-  WalletDropdown,
-  WalletDropdownBasename,
-  WalletDropdownFundLink,
-  WalletDropdownLink,
-  WalletDropdownDisconnect,
-  ConnectWalletText,
-} from "@coinbase/onchainkit/wallet";
+"use client";
+import { WalletDefault } from "@coinbase/onchainkit/wallet";
 
 export function WalletComponents() {
-  const buttonStyle =
-    "!h-12 !px-8 !py-3 !rounded-md !text-base !font-medium !bg-primary hover:!bg-primary/90 !text-white [&_.ock-text-inverse]:!text-white !min-w-[153px] !inline-flex !items-center !justify-center";
+  // const buttonStyle =
+  //   "!h-12 !px-8 !py-3 !rounded-md !text-base !font-medium !bg-primary hover:!bg-primary/90 !text-white [&_.ock-text-inverse]:!text-white !min-w-[153px] !inline-flex !items-center !justify-center";
 
   return (
-    <Wallet>
-      <ConnectWallet className={buttonStyle}>
+    <>
+      <WalletDefault />
+      {/* <ConnectWallet className={buttonStyle}>
         <ConnectWalletText className="text-base font-normal">
-          Fund
+          Connect
         </ConnectWalletText>
       </ConnectWallet>
       <WalletDropdown>
@@ -41,6 +27,7 @@ export function WalletComponents() {
         <WalletDropdownFundLink />
         <WalletDropdownDisconnect />
       </WalletDropdown>
-    </Wallet>
+    </Wallet> */}
+    </>
   );
 }
