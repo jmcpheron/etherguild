@@ -54,11 +54,21 @@ function QuestContent({ id }: QuestProps) {
               <p className="text-slate-600 dark:text-slate-300">
                 {description}
               </p>
-              <div className="flex flex-row gap-4">
-                <div>
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-4 md:ml-auto">
+                <div className="col-span-1">
+                  <Button variant="outline" size="lg" className="w-full">
+                    Read More
+                  </Button>
+                </div>
+                <div className="col-span-1">
                   {isComplete ? (
                     link ? (
-                      <Button variant="default" size="lg" asChild>
+                      <Button
+                        variant="default"
+                        size="lg"
+                        className="w-full"
+                        asChild
+                      >
                         <a
                           href={link}
                           target="_blank"
@@ -68,20 +78,20 @@ function QuestContent({ id }: QuestProps) {
                         </a>
                       </Button>
                     ) : (
-                      <Button variant="default" size="lg" disabled>
+                      <Button
+                        variant="default"
+                        size="lg"
+                        className="w-full"
+                        disabled
+                      >
                         Complete!
                       </Button>
                     )
                   ) : (
-                    <div className="w-full">
+                    <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
                       <TransactionComponents text="Fund" call={call} />
                     </div>
                   )}
-                </div>
-                <div>
-                  <Button variant="outline" size="lg">
-                    Read More
-                  </Button>
                 </div>
               </div>
             </div>
@@ -91,6 +101,11 @@ function QuestContent({ id }: QuestProps) {
                 {description}
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="w-full">
+                  <Button variant="outline" size="lg" className="w-full">
+                    Read More
+                  </Button>
+                </div>
                 <div className="w-full">
                   {isComplete ? (
                     link ? (
@@ -123,11 +138,6 @@ function QuestContent({ id }: QuestProps) {
                       <TransactionComponents text="Fund" call={call} />
                     </div>
                   )}
-                </div>
-                <div className="w-full">
-                  <Button variant="outline" size="lg" className="w-full">
-                    Read More
-                  </Button>
                 </div>
               </div>
             </div>

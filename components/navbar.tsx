@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ModeToggle } from "./mode-toggle";
 import { WalletComponents } from "@/components/wallet/wallet";
-import Link from 'next/link';
+import Link from "next/link";
 
 export function Navbar() {
   return (
@@ -13,9 +13,10 @@ export function Navbar() {
             alt="EtherGuild Logo"
             width={24}
             height={24}
+            className="mr-2"
           />
+          <span className="font-bold text-white">Ether Guild</span>
         </Link>
-        <span className="font-bold text-white">Ether Guild</span>
       </div>
 
       <div className="flex items-center gap-4">

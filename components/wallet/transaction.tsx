@@ -1,4 +1,3 @@
-import { Avatar, Name } from "@coinbase/onchainkit/identity";
 import type { LifecycleStatus } from "@coinbase/onchainkit/transaction";
 import {
   Transaction,
@@ -35,7 +34,7 @@ export default function TransactionComponents({
   }, []);
 
   const buttonStyle =
-    "!h-12 !px-8 !py-3 !rounded-md !text-base !font-medium !bg-primary hover:!bg-primary/90 !text-white [&_.ock-text-inverse]:!text-white !min-w-[153px] !inline-flex !items-center !justify-center";
+    "!h-12 !px-8 !py-3 !rounded-md !text-base !font-medium !bg-primary hover:!bg-primary/90 !text-white [&_.ock-text-inverse]:!text-white !min-w-[153px] !inline-flex !items-center !justify-center w-full";
 
   return address ? (
     <Transaction
