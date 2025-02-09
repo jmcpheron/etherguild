@@ -30,7 +30,7 @@ const SEPOLIA_CHAIN_ID = 11155111;
 //const BASE_SEPOLIA_CHAIN_ID = 84532;
 
 export default function TransactionComponents({
-  text,
+  //text,
   call,
   className,
 }: {
