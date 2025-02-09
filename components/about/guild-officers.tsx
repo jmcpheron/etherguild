@@ -62,9 +62,7 @@ export function GuildOfficers() {
         {officers.map((officer, index) => (
           <div
             key={index}
-            className="group relative flex flex-col items-center text-center p-6 rounded-xl
-                     transition-all duration-300 hover:bg-accent/50
-                     hover:shadow-lg hover:-translate-y-1"
+            className="group relative flex flex-col items-center text-center p-6 rounded-xl transition-all duration-300 hover:bg-accent/50 hover:shadow-lg hover:-translate-y-1"
           >
             <div className="relative mb-4 transition-transform duration-300 group-hover:scale-105">
               <a
