@@ -3,7 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode } from "react";
 import { OnchainKitProvider } from "@coinbase/onchainkit";
-import { baseSepolia } from "wagmi/chains";
+import { baseSepolia } from "viem/chains";
 import "@coinbase/onchainkit/styles.css";
 
 const queryClient = new QueryClient();

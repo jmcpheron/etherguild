@@ -1,5 +1,14 @@
 "use client";
 
+import { ETH } from "@/components/svg/eth";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 import type { LifecycleStatus } from "@coinbase/onchainkit/transaction";
 import {
   Transaction,
@@ -13,20 +22,11 @@ import {
   ConnectWalletText,
   Wallet,
 } from "@coinbase/onchainkit/wallet";
-import { useCallback, useState, useRef } from "react";
+import { useCallback, useState } from "react";
 import { useAccount } from "wagmi";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ETH } from "@/components/svg/eth";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { USDC } from "../svg/usdc";
 
+const SEPOLIA_CHAIN_ID = 11155111;
 const BASE_SEPOLIA_CHAIN_ID = 84532;
 
 export default function TransactionComponents({
@@ -64,13 +64,8 @@ export default function TransactionComponents({
   };
 
   return address ? (
-    <Transaction
-      className="gap-0"
-      chainId={BASE_SEPOLIA_CHAIN_ID}
-      calls={[call]}
-      onStatus={handleOnStatus}
-    >
-      {!isEditing && (
+    <>
+      {/* {!isEditing && (
         <Button
           className={cn(buttonStyle, "text-base font-normal", className)}
           onClick={() => setIsEditing(true)}
@@ -120,12 +115,6 @@ export default function TransactionComponents({
             </DropdownMenuContent>
           </DropdownMenu>
           <div className="flex flex-col gap-0.5 ml-1 mr-2">
-            <TransactionButton
-              className="hidden"
-              text={text}
-              disabled={false}
-              data-transaction-button
-            />
             <button
               className="h-5 w-5 flex items-center justify-center text-green-500 hover:text-green-600"
               onClick={() => onSubmit()}
@@ -154,13 +143,25 @@ export default function TransactionComponents({
             </button>
           </div>
         </div>
-      )}
-
-      <TransactionStatus>
-        <TransactionStatusLabel />
-        <TransactionStatusAction />
-      </TransactionStatus>
-    </Transaction>
+      )} */}
+      <Transaction
+        className="gap-0"
+        chainId={BASE_SEPOLIA_CHAIN_ID}
+        calls={[call]}
+        onStatus={handleOnStatus}
+      >
+        <TransactionButton
+          // className="hidden"
+          text={text}
+          disabled={false}
+          data-transaction-button
+        />
+        <TransactionStatus>
+          <TransactionStatusLabel />
+          <TransactionStatusAction />
+        </TransactionStatus>
+      </Transaction>
+    </>
   ) : (
     <Wallet>
       <ConnectWallet className={cn(buttonStyle, className)}>
