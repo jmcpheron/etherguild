@@ -1,13 +1,15 @@
 import Image from "next/image";
+import { cn } from "../lib/utils";
 
 interface HeroProps {
   imagePath: string;
   splashText: string;
+  className?: string;
 }
 
-export function Hero({ imagePath, splashText }: HeroProps) {
+export function Hero({ imagePath, splashText, className }: HeroProps) {
   return (
-    <div className="relative w-full h-[40vh] -z-10">
+    <div className={cn("relative w-full h-[40vh] -z-10", className)}>
       <Image
         src={imagePath}
         alt="Hero background"

@@ -49,84 +49,99 @@ function QuestContent({ id }: QuestProps) {
         <div className="flex-grow flex flex-col gap-6">
           <h2 className="text-2xl font-bold">{title}</h2>
 
-          <div className="flex flex-col md:flex-row gap-8">
-            <p className="text-slate-600 dark:text-slate-300 md:w-3/5">
-              {description}
-            </p>
-            <div
-              className={`grid grid-cols-2 gap-4 md:flex md:flex-col md:w-2/5 ${
-                isMain ? "md:items-end" : ""
-              }`}
-            >
-              {isMain ? (
-                <>
-                  <div className="col-span-1 w-full md:w-32 md:flex md:justify-end">
-                    {isComplete ? (
-                      link ? (
-                        <Button
-                          size="lg"
-                          className="w-full bg-aa482f text-primary-foreground hover:bg-primary/90"
-                          asChild
+          {isMain ? (
+            <div className="flex flex-col md:flex-row gap-8">
+              <p className="text-slate-600 dark:text-slate-300">
+                {description}
+              </p>
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-4 md:ml-auto">
+                <div className="col-span-1">
+                  <Button variant="outline" size="lg" className="w-full">
+                    Read More
+                  </Button>
+                </div>
+                <div className="col-span-1">
+                  {isComplete ? (
+                    link ? (
+                      <Button
+                        variant="default"
+                        size="lg"
+                        className="w-full"
+                        asChild
+                      >
+                        <a
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          <a
-                            href={link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Complete! ↗
-                          </a>
-                        </Button>
-                      ) : (
-                        <Button size="lg" className="w-full" disabled>
-                          Complete!
-                        </Button>
-                      )
+                          Complete! ↗
+                        </a>
+                      </Button>
                     ) : (
+                      <Button
+                        variant="default"
+                        size="lg"
+                        className="w-full"
+                        disabled
+                      >
+                        Complete!
+                      </Button>
+                    )
+                  ) : (
+                    <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
                       <TransactionComponents text="Fund" call={call} />
-                    )}
-                  </div>
-                  <div className="col-span-1 w-full md:w-32 md:flex md:justify-end">
-                    <Button variant="outline" size="lg" className="w-full">
-                      Read More
-                    </Button>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="col-span-1">
-                    {isComplete ? (
-                      link ? (
-                        <Button
-                          size="lg"
-                          className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                          asChild
-                        >
-                          <a
-                            href={link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            Complete!
-                          </a>
-                        </Button>
-                      ) : (
-                        <Button size="lg" className="w-full" disabled>
-                          Complete!
-                        </Button>
-                      )
-                    ) : (
-                      <TransactionComponents text="Fund" call={call} />
-                    )}
-                  </div>
-                  <div className="col-span-1">
-                    <Button variant="outline" size="lg" className="w-full">
-                      Read More
-                    </Button>
-                  </div>
-                </>
-              )}
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="flex flex-col gap-8">
+              <p className="text-slate-600 dark:text-slate-300">
+                {description}
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="w-full">
+                  <Button variant="outline" size="lg" className="w-full">
+                    Read More
+                  </Button>
+                </div>
+                <div className="w-full">
+                  {isComplete ? (
+                    link ? (
+                      <Button
+                        variant="default"
+                        size="lg"
+                        className="w-full"
+                        asChild
+                      >
+                        <a
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Complete!
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="default"
+                        size="lg"
+                        className="w-full"
+                        disabled
+                      >
+                        Complete!
+                      </Button>
+                    )
+                  ) : (
+                    <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
+                      <TransactionComponents text="Fund" call={call} />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="mt-6">
