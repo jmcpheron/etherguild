@@ -11,10 +11,10 @@ export function callFund(
     throw new Error("Contract address is required");
   }
 
-  const numAmount = parseFloat(amount);
+  const numAmount = parseFloat(amount || "0");
 
   if (asset === "ETH") {
-    return {
+    const call: TransactionCall = {
       to: address as `0x${string}`,
       abi: [
         {
@@ -26,8 +26,10 @@ export function callFund(
         },
       ],
       functionName: "donateETH",
-      value: BigInt(numAmount * 10 ** 18), // Convert ETH to Wei
+      value: BigInt(numAmount * 10 ** 18), // Ensure value is set for payable function
     };
+    console.log("call", call);
+    return call;
   } else {
     return {
       to: address as `0x${string}`,
