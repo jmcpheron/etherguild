@@ -27,25 +27,10 @@ import { useCallback, useState, useId } from "react";
 import { useAccount } from "wagmi";
 import { MAIN_QUEST_ADDRESS } from "@/app/constants";
 import { Suspense } from "react";
+import { Call } from "./call";
 
 const SEPOLIA_CHAIN_ID = 11155111;
 //const BASE_SEPOLIA_CHAIN_ID = 84532;
-
-export type TransactionCall = {
-  to: `0x${string}`;
-  abi: readonly [
-    {
-      type: "function";
-      name: string;
-      inputs: Array<{ name: string; type: string }> | [];
-      outputs: [];
-      stateMutability: "payable" | "nonpayable";
-    }
-  ];
-  functionName: "donateETH" | "donateERC20";
-  value?: bigint;
-  args?: [`0x${string}`, bigint];
-};
 
 function TransactionComponentsInner({
   text,
@@ -58,7 +43,7 @@ function TransactionComponentsInner({
     contractAddress: string,
     amount: string,
     asset: "ETH" | "USDC"
-  ) => TransactionCall;
+  ) => Call;
   className?: string;
   contractAddress: string;
 }) {

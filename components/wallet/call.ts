@@ -1,11 +1,17 @@
-import { TransactionCall } from "./transaction";
+import { encodeFunctionData, type Address, type Hex } from "viem";
 import { MAIN_QUEST_ADDRESS } from "@/app/constants";
+
+export type Call = {
+  to: Address;
+  data: Hex;
+  value: bigint;
+};
 
 export function callFund(
   contractAddress: string = MAIN_QUEST_ADDRESS,
   amount: string,
   asset: "ETH" | "USDC"
-): TransactionCall {
+): Call {
   const address = contractAddress || MAIN_QUEST_ADDRESS;
   if (!address) {
     throw new Error("Contract address is required");
@@ -14,25 +20,27 @@ export function callFund(
   const numAmount = parseFloat(amount || "0");
 
   if (asset === "ETH") {
-    const call: TransactionCall = {
-      to: address as `0x${string}`,
+    const data = encodeFunctionData({
       abi: [
         {
           type: "function",
           name: "donateETH",
-          inputs: [] as const,
-          outputs: [] as const,
-          stateMutability: "payable" as const,
+          inputs: [],
+          outputs: [],
+          stateMutability: "payable",
         },
       ],
       functionName: "donateETH",
-      value: BigInt(numAmount * 10 ** 18), // Ensure value is set for payable function
+    });
+
+    const tx = {
+      to: address as Address,
+      data,
+      value: BigInt(numAmount * 10 ** 18),
     };
-    console.log("call", call);
-    return call;
+    return tx;
   } else {
-    return {
-      to: address as `0x${string}`,
+    const data = encodeFunctionData({
       abi: [
         {
           type: "function",
@@ -44,12 +52,18 @@ export function callFund(
           outputs: [],
           stateMutability: "nonpayable",
         },
-      ] as const,
+      ],
       functionName: "donateERC20",
       args: [
-        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", // USDC address
-        BigInt(numAmount * 10 ** 6), // Convert to USDC decimals
+        "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" as Address,
+        BigInt(numAmount * 10 ** 6),
       ],
+    });
+
+    return {
+      to: address as Address,
+      data,
+      value: BigInt(0),
     };
   }
 }
