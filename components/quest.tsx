@@ -10,6 +10,7 @@ import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
 import TransactionComponents from "./wallet/transaction";
 import { call } from "./wallet/call";
 import type { Quest } from "@prisma/client";
+import Link from "next/link";
 
 type QuestProps = Pick<Quest, "id"> & Partial<Omit<Quest, "id">>;
 
@@ -54,8 +55,13 @@ function QuestContent({ id }: QuestProps) {
               <p className="text-slate-600 dark:text-slate-300">{summary}</p>
               <div className="grid grid-cols-2 sm:flex sm:flex-row gap-4 md:ml-auto">
                 <div className="col-span-1">
-                  <Button variant="outline" size="lg" className="w-full">
-                    Read More
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full"
+                    asChild
+                  >
+                    <Link href="/quest">Read More</Link>
                   </Button>
                 </div>
                 <div className="col-span-1">
@@ -98,7 +104,12 @@ function QuestContent({ id }: QuestProps) {
               <p className="text-slate-600 dark:text-slate-300">{summary}</p>
               <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="w-full">
-                  <Button variant="outline" size="lg" className="w-full">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full text-muted-foreground"
+                    disabled
+                  >
                     Read More
                   </Button>
                 </div>

@@ -24,7 +24,12 @@ export function ProposedQuests({ quests }: ProposedQuestsProps) {
                   {quest.title}
                 </TableCell>
                 <TableCell className="text-right py-4">
-                  <Button variant="outline" size="sm">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-muted-foreground"
+                    disabled
+                  >
                     Read More
                   </Button>
                 </TableCell>
