@@ -45,7 +45,7 @@ function QuestContent({ id }: QuestProps) {
         </div>
       )}
 
-      <Card className="p-6 flex flex-col h-full">
+      <Card className="p-6 flex flex-col h-full border-slate-800/20 dark:border-slate-700/30">
         <div className="flex-grow flex flex-col gap-6">
           <h2 className="text-2xl font-bold">{title}</h2>
 
