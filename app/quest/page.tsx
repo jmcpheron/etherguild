@@ -30,14 +30,17 @@ export default function QuestPage() {
         {/* Two Equal Columns */}
         <div className="grow">
           <Card className="p-6 border-slate-800/20 dark:border-slate-700/30">
-            <h1 className="text-4xl font-bold mb-4">Launch Ether Guild</h1>
+            <h1 className="text-4xl font-bold mb-4">Launch etherguild.xyz</h1>
             <p className=" mb-8">
               Build and launch the Ether Guild website, a platform for funding
               and supporting the Ethereum commons.
             </p>
             <div className="flex justify-end mb-4">
               <div className="col-span-2 sm:col-span-1 lg:w-1/3 xl:w-1/4">
-                <TransactionComponents text="Fund" call={callFund(null)} />
+                <TransactionComponents
+                  text="Fund"
+                  call={callFund(null, "ETH", 0.00000001)}
+                />
               </div>
             </div>
             <Progress value={90} className="h-2" />
@@ -155,6 +158,7 @@ export default function QuestPage() {
           </Card>
         </div>
       </div>
+      <div className="mb-32"></div>
     </main>
   );
 }
