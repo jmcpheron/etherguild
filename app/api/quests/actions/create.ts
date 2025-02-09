@@ -1,6 +1,7 @@
 import prisma from "@/lib/db";
 import { Quest } from "@prisma/client";
 import { NextResponse } from "next/server";
+import { MAIN_QUEST_ADDRESS } from "@/app/constants";
 
 type CreateQuestRequest = Pick<
   Quest,
@@ -27,7 +28,7 @@ function validateRequest(request: Request): Promise<CreateQuestRequest> {
       isMain: body.isMain || false,
       isActive: body.isActive || false,
       progress: body.progress || 0,
-      contractAddress: null,
+      contractAddress: MAIN_QUEST_ADDRESS,
     };
   });
 }

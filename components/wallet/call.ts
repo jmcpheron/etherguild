@@ -1,11 +1,13 @@
 import { TransactionCall } from "./transaction";
+import { MAIN_QUEST_ADDRESS } from "@/app/constants";
 
 export function callFund(
-  contractAddress: string,
+  contractAddress: string = MAIN_QUEST_ADDRESS,
   amount: string,
   asset: "ETH" | "USDC"
 ): TransactionCall {
-  if (!contractAddress) {
+  const address = contractAddress || MAIN_QUEST_ADDRESS;
+  if (!address) {
     throw new Error("Contract address is required");
   }
 
@@ -13,7 +15,7 @@ export function callFund(
 
   if (asset === "ETH") {
     return {
-      to: contractAddress as `0x${string}`,
+      to: address as `0x${string}`,
       abi: [
         {
           type: "function",
@@ -28,7 +30,7 @@ export function callFund(
     };
   } else {
     return {
-      to: contractAddress as `0x${string}`,
+      to: address as `0x${string}`,
       abi: [
         {
           type: "function",

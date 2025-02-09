@@ -25,6 +25,8 @@ import {
 } from "@coinbase/onchainkit/wallet";
 import { useCallback, useState, useId } from "react";
 import { useAccount } from "wagmi";
+import { MAIN_QUEST_ADDRESS } from "@/app/constants";
+import { Suspense } from "react";
 
 const SEPOLIA_CHAIN_ID = 11155111;
 //const BASE_SEPOLIA_CHAIN_ID = 84532;
@@ -45,11 +47,11 @@ export type TransactionCall = {
   args?: [`0x${string}`, bigint];
 };
 
-export default function TransactionComponents({
+function TransactionComponentsInner({
   text,
   call,
   className,
-  contractAddress,
+  contractAddress = MAIN_QUEST_ADDRESS,
 }: {
   text: string;
   call: (
@@ -183,5 +185,15 @@ export default function TransactionComponents({
         </ConnectWalletText>
       </ConnectWallet>
     </Wallet>
+  );
+}
+
+export default function TransactionComponents(
+  props: Parameters<typeof TransactionComponentsInner>[0]
+) {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <TransactionComponentsInner {...props} />
+    </Suspense>
   );
 }
