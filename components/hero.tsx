@@ -9,7 +9,7 @@ interface HeroProps {
 
 export function Hero({ imagePath, splashText, className }: HeroProps) {
   return (
-    <div className={cn("relative w-full h-[40vh] -z-10", className)}>
+    <div className={cn("relative w-full h-[50vh] -z-10", className)}>
       <Image
         src={imagePath}
         alt="Hero background"

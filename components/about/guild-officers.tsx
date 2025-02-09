@@ -30,7 +30,7 @@ export const officers: Officer[] = [
     social: "https://x.com/tobschcom",
     website: "https://www.growthepie.xyz/",
     logo: "/image/growthepie-logo.png",
-    person: "Tobias",
+    person: "Tobias Schreier",
   },
   {
     house: "Etherealize",
