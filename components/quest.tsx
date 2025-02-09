@@ -90,8 +90,8 @@ function QuestContent({ id }: QuestProps) {
               <p className="text-slate-600 dark:text-slate-300">
                 {description}
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="col-span-2 sm:col-span-1">
+              <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+                <div className="w-full">
                   {isComplete ? (
                     link ? (
                       <Button
@@ -124,7 +124,7 @@ function QuestContent({ id }: QuestProps) {
                     </div>
                   )}
                 </div>
-                <div className="col-span-2 sm:col-span-1">
+                <div className="w-full">
                   <Button variant="outline" size="lg" className="w-full">
                     Read More
                   </Button>
