@@ -8,7 +8,7 @@ import Image from "next/image";
 import { useQuest } from "@/app/hooks/useQuests";
 import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
 import TransactionComponents from "./wallet/transaction";
-import { call } from "./wallet/call";
+import { callFund } from "./wallet/call";
 import type { Quest } from "@prisma/client";
 import Link from "next/link";
 
@@ -93,7 +93,10 @@ function QuestContent({ id }: QuestProps) {
                     )
                   ) : (
                     <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
-                      <TransactionComponents text="Fund" call={call} />
+                      <TransactionComponents
+                        text="Fund"
+                        call={callFund(quest.contractAddress)}
+                      />
                     </div>
                   )}
                 </div>
@@ -142,7 +145,10 @@ function QuestContent({ id }: QuestProps) {
                     )
                   ) : (
                     <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
-                      <TransactionComponents text="Fund" call={call} />
+                      <TransactionComponents
+                        text="Fund"
+                        call={callFund(quest.contractAddress)}
+                      />
                     </div>
                   )}
                 </div>

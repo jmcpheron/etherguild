@@ -1,17 +1,18 @@
-const clickContractAddress = "0x67c97D1FB8184F038592b2109F854dfb09C77C75";
-const clickContractAbi = [
-  {
-    type: "function",
-    name: "click",
-    inputs: [],
-    outputs: [],
-    stateMutability: "nonpayable",
-  },
-] as const;
+export function callFund(contractAddress: string | null) {
+  if (!contractAddress) return null;
 
-export const call = {
-  to: clickContractAddress as "0xstring",
-  abi: clickContractAbi,
-  functionName: "click",
-  args: [],
-};
+  return {
+    to: contractAddress as `0x${string}`,
+    abi: [
+      {
+        type: "function",
+        name: "click",
+        inputs: [],
+        outputs: [],
+        stateMutability: "nonpayable",
+      },
+    ] as const,
+    functionName: "click",
+    args: [],
+  };
+}
