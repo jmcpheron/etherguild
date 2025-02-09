@@ -20,11 +20,11 @@ export function Navbar() {
       </div>
 
       <div className="flex items-center gap-4 relative z-[60]">
+        <ModeToggle />
         <a href="/about" className="text-white hover:text-gray-300">
           About
         </a>
         <WalletComponents />
-        <ModeToggle />
       </div>
     </nav>
   );

@@ -39,11 +39,10 @@ export const officers: Officer[] = [
 export function GuildOfficers() {
   return (
     <section className="py-12">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold mb-4">Guild Officers</h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Led by distinguished houses across the Ethereum ecosystem, our
-          officers guide the Guild&apos;s mission and strategy.
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold mb-4 text-center">Guild Officers</h2>
+        <p className="text-muted-foreground text-center max-w-2xl mx-auto">
+          Our officers guide the Guild&apos;s mission and strategy.
         </p>
       </div>
 

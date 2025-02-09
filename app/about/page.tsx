@@ -39,8 +39,8 @@ export default function About() {
               Mission Statement
             </h2>
             <p className="text-xl leading-relaxed">
-              The Ether Guild is a community-driven initiative to fund and
-              support Ethereum-based projects and initiatives.
+              Ether Guild is a group of hyper-focused ETH supporters, working to
+              elevate ETH, the money, in service of Ethereum, the computer.
             </p>
           </section>
 
@@ -52,10 +52,11 @@ export default function About() {
             <h2 className="text-2xl font-bold mb-4 text-center">
               Guild Treasury
             </h2>
-            <p className="text-lg max-w-3xl mx-auto text-center leading-relaxed">
+            <p className="text-lg max-w-3xl mx-auto leading-relaxed">
               The Guild Treasury is a vault controlled by Guild officers with
-              one purpose: Fund initiatives supporting the furtherance of ETH as
-              an ecosystem.
+              one purpose:
+              <br />
+              Fund initiatives supporting ETH.
             </p>
           </section>
 
@@ -75,12 +76,12 @@ export default function About() {
                 &rdquo;
               </span>
             </blockquote>
-            <p className="text-lg leading-relaxed text-center mb-4">
+            <p className="text-lg leading-relaxed mb-4">
               We have the tools to coordinate, it&apos;s time for us to use
               them. To achieve our mission, let&apos;s build a mechanism that
               encourages supporting ETH in a way that is both fun and rewarding.
             </p>
-            <p className="text-lg leading-relaxed text-center mb-12">
+            <p className="text-lg leading-relaxed mb-12">
               Guild Quests are an opportunity for the community to signal
               support through fine-grained, direct funding and achieve shared
               goals that support ETH, the money, in service of Ethereum, the
@@ -109,12 +110,6 @@ export default function About() {
                 ))}
               </div>
             </div>
-
-            <p className="text-lg text-center max-w-3xl mx-auto leading-relaxed">
-              Through collaboration, funding, and action, Ether Guild ensures
-              that ETH remains the economic backbone of Ethereum—because a
-              strong foundation secures a lasting future.
-            </p>
           </section>
 
           {/* FAQ */}
