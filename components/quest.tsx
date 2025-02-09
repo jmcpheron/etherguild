@@ -8,8 +8,8 @@ import Image from "next/image";
 import { useQuest } from "@/app/hooks/useQuests";
 import { QuestSkeleton } from "@/components/skeletons/quest-skeleton";
 import TransactionComponents from "./wallet/transaction";
-import type { Quest } from "@/types/quest";
 import { call } from "./wallet/call";
+import type { Quest } from "@prisma/client";
 
 type QuestProps = Pick<Quest, "id"> & Partial<Omit<Quest, "id">>;
 
@@ -28,7 +28,7 @@ function QuestContent({ id }: QuestProps) {
   if (error) return <div>Error loading quest</div>;
   if (!quest) return null;
 
-  const { title, description, progress, isMain, link } = quest;
+  const { title, summary, progress, isMain, link } = quest;
   const isComplete = progress === 100;
 
   return (
@@ -45,15 +45,13 @@ function QuestContent({ id }: QuestProps) {
         </div>
       )}
 
-      <Card className="p-6 flex flex-col h-full">
+      <Card className="p-6 flex flex-col h-full border-slate-800/20 dark:border-slate-700/30">
         <div className="flex-grow flex flex-col gap-6">
           <h2 className="text-2xl font-bold">{title}</h2>
 
           {isMain ? (
             <div className="flex flex-col md:flex-row gap-8">
-              <p className="text-slate-600 dark:text-slate-300">
-                {description}
-              </p>
+              <p className="text-slate-600 dark:text-slate-300">{summary}</p>
               <div className="grid grid-cols-2 sm:flex sm:flex-row gap-4 md:ml-auto">
                 <div className="col-span-1">
                   <Button variant="outline" size="lg" className="w-full">
@@ -97,9 +95,7 @@ function QuestContent({ id }: QuestProps) {
             </div>
           ) : (
             <div className="flex flex-col gap-8">
-              <p className="text-slate-600 dark:text-slate-300">
-                {description}
-              </p>
+              <p className="text-slate-600 dark:text-slate-300">{summary}</p>
               <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-4">
                 <div className="w-full">
                   <Button variant="outline" size="lg" className="w-full">

@@ -49,7 +49,7 @@ export default function Home() {
           <ProposedQuests quests={proposedQuests} />
         </Suspense>
       </div>
-      <div className="container mx-auto px-4 py-4 mb-5">
+      <div className="container mx-auto px-4 py-4 mb-20">
         <OfficerLogos />
       </div>
     </main>

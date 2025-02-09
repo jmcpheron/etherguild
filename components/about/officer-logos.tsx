@@ -8,10 +8,7 @@ export function OfficerLogos() {
 
       <div className="flex flex-wrap justify-center gap-4 md:gap-8">
         {officers.map((officer: Officer, index: number) => (
-          <div
-            key={index}
-            className="relative group"
-          >
+          <div key={index} className="relative group">
             <Image
               src={officer.logo}
               alt={`${officer.house} logo`}
