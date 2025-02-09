@@ -1,13 +1,14 @@
 "use client";
 
-import { ETH } from "@/components/svg/eth";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+// import { ETH } from "@/components/svg/eth";
+// import { USDC } from "../svg/usdc";
+// import { Button } from "@/components/ui/button";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import type { LifecycleStatus } from "@coinbase/onchainkit/transaction";
 import {
@@ -22,11 +23,10 @@ import {
   ConnectWalletText,
   Wallet,
 } from "@coinbase/onchainkit/wallet";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useAccount } from "wagmi";
-import { USDC } from "../svg/usdc";
 
-const SEPOLIA_CHAIN_ID = 11155111;
+//const SEPOLIA_CHAIN_ID = 11155111;
 const BASE_SEPOLIA_CHAIN_ID = 84532;
 
 export default function TransactionComponents({
@@ -40,12 +40,12 @@ export default function TransactionComponents({
   className?: string;
 }) {
   const { address } = useAccount();
-  const [isEditing, setIsEditing] = useState(false);
-  const [amount, setAmount] = useState("0.0");
-  const [selectedToken, setSelectedToken] = useState({
-    symbol: "ETH",
-    icon: ETH,
-  });
+  // const [isEditing, setIsEditing] = useState(false);
+  // const [amount, setAmount] = useState("0.0");
+  // const [selectedToken, setSelectedToken] = useState({
+  //   symbol: "ETH",
+  //   icon: ETH,
+  // });
 
   const handleOnStatus = useCallback((status: LifecycleStatus) => {
     console.log("LifecycleStatus", status);
@@ -54,14 +54,14 @@ export default function TransactionComponents({
   const buttonStyle =
     "!h-12 !px-8 !py-3 !rounded-md !text-base !font-medium !bg-primary hover:!bg-primary/90 !text-white [&_.ock-text-inverse]:!text-white !min-w-[153px] !inline-flex !items-center !justify-center w-full";
 
-  const onSubmit = () => {
-    const transactionBtn = document.querySelector(
-      ".hidden[data-transaction-button]"
-    );
-    if (transactionBtn instanceof HTMLElement) {
-      transactionBtn.click();
-    }
-  };
+  // const onSubmit = () => {
+  //   const transactionBtn = document.querySelector(
+  //     ".hidden[data-transaction-button]"
+  //   );
+  //   if (transactionBtn instanceof HTMLElement) {
+  //     transactionBtn.click();
+  //   }
+  // };
 
   return address ? (
     <>
