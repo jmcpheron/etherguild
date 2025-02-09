@@ -39,7 +39,8 @@ export default function QuestPage() {
               <div className="col-span-2 sm:col-span-1 lg:w-1/3 xl:w-1/4">
                 <TransactionComponents
                   text="Fund"
-                  call={callFund(null, "ETH", 0.00000001)}
+                  call={callFund}
+                  contractAddress={"0xFd843f5158401a48a7689BbAe1976689c6582cdf"}
                 />
               </div>
             </div>

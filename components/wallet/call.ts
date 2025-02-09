@@ -1,9 +1,15 @@
+import { TransactionCall } from "./transaction";
+
 export function callFund(
-  contractAddress: string | null,
-  asset: "ETH" | "USDC" = "ETH",
-  amount: number = 0.0000000001
-) {
-  if (!contractAddress) return null;
+  contractAddress: string,
+  amount: string,
+  asset: "ETH" | "USDC"
+): TransactionCall {
+  if (!contractAddress) {
+    throw new Error("Contract address is required");
+  }
+
+  const numAmount = parseFloat(amount);
 
   if (asset === "ETH") {
     return {
@@ -12,13 +18,13 @@ export function callFund(
         {
           type: "function",
           name: "donateETH",
-          inputs: [],
-          outputs: [],
-          stateMutability: "payable",
+          inputs: [] as const,
+          outputs: [] as const,
+          stateMutability: "payable" as const,
         },
-      ] as const,
+      ],
       functionName: "donateETH",
-      value: BigInt(amount * 10 ** 18), // Convert ETH to Wei
+      value: BigInt(numAmount * 10 ** 18), // Convert ETH to Wei
     };
   } else {
     return {
@@ -38,7 +44,7 @@ export function callFund(
       functionName: "donateERC20",
       args: [
         "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", // USDC address
-        BigInt(amount * 10 ** 6), // Convert to USDC decimals
+        BigInt(numAmount * 10 ** 6), // Convert to USDC decimals
       ],
     };
   }

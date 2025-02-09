@@ -95,7 +95,8 @@ function QuestContent({ id }: QuestProps) {
                     <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
                       <TransactionComponents
                         text="Fund"
-                        call={callFund(quest.contractAddress)}
+                        call={callFund}
+                        contractAddress={quest.contractAddress}
                       />
                     </div>
                   )}
@@ -147,7 +148,8 @@ function QuestContent({ id }: QuestProps) {
                     <div className="!w-full [&>div]:!w-full [&>div>div]:!w-full [&_button]:!w-full">
                       <TransactionComponents
                         text="Fund"
-                        call={callFund(quest.contractAddress)}
+                        call={callFund}
+                        contractAddress={quest.contractAddress}
                       />
                     </div>
                   )}

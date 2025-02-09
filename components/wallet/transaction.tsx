@@ -29,15 +29,36 @@ import { useAccount } from "wagmi";
 const SEPOLIA_CHAIN_ID = 11155111;
 //const BASE_SEPOLIA_CHAIN_ID = 84532;
 
+export type TransactionCall = {
+  to: `0x${string}`;
+  abi: readonly [
+    {
+      type: "function";
+      name: string;
+      inputs: Array<{ name: string; type: string }> | [];
+      outputs: [];
+      stateMutability: "payable" | "nonpayable";
+    }
+  ];
+  functionName: "donateETH" | "donateERC20";
+  value?: bigint;
+  args?: [`0x${string}`, bigint];
+};
+
 export default function TransactionComponents({
-  //text,
+  text,
   call,
   className,
+  contractAddress,
 }: {
   text: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  call: any;
+  call: (
+    contractAddress: string,
+    amount: string,
+    asset: "ETH" | "USDC"
+  ) => TransactionCall;
   className?: string;
+  contractAddress: string;
 }) {
   const { address } = useAccount();
   const [isEditing, setIsEditing] = useState(false);
@@ -60,7 +81,9 @@ export default function TransactionComponents({
       <Transaction
         className="gap-0"
         chainId={SEPOLIA_CHAIN_ID}
-        calls={[call]}
+        calls={[
+          call(contractAddress, amount, selectedToken.symbol as "ETH" | "USDC"),
+        ]}
         onStatus={handleOnStatus}
       >
         {!isEditing && (
@@ -68,7 +91,7 @@ export default function TransactionComponents({
             className={cn(buttonStyle, "text-base font-normal", className)}
             onClick={() => setIsEditing(true)}
           >
-            Fund
+            {text}
           </Button>
         )}
         {isEditing && (
@@ -156,7 +179,7 @@ export default function TransactionComponents({
     <Wallet>
       <ConnectWallet className={cn(buttonStyle, className)}>
         <ConnectWalletText className="text-base font-normal">
-          Fund
+          {text}
         </ConnectWalletText>
       </ConnectWallet>
     </Wallet>
