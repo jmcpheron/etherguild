@@ -16,7 +16,7 @@ export const officers: Officer[] = [
     social: "https://x.com/RyanSAdams",
     website: "https://www.bankless.com/",
     logo: "/image/bankless-logo.png",
-    person: "Ryan Adams",
+    person: "Ryan Sean Adams",
   },
   {
     house: "The Daily Gwei",

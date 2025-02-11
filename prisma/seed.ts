@@ -48,15 +48,15 @@ async function main() {
         isActive: false,
         progress: 0,
       },
-      // {
-      //   title: "Get the Ethereum logo accepted as a unicode symbol",
-      //   summary:
-      //     "Campaign for the Ethereum logo to be included in the Unicode standard",
-      //   description: "TBD",
-      //   isMain: false,
-      //   isActive: false,
-      //   progress: 30,
-      // },
+      {
+        title: "Get the Ethereum logo accepted as a unicode symbol",
+        summary:
+          "Campaign for the Ethereum logo to be included in the Unicode standard",
+        description: "TBD",
+        isMain: false,
+        isActive: false,
+        progress: 30,
+      },
       {
         title: "Produce a short Ethereum animation that hits 1M views",
         summary:
@@ -109,14 +109,14 @@ async function main() {
         isActive: false,
         progress: 0,
       },
-      {
-        title: "Trend the hashtag #EthIsMoney",
-        summary: "Coordinate social media campaign to trend #EthIsMoney",
-        description: "TBD",
-        isMain: false,
-        isActive: false,
-        progress: 0,
-      },
+      // {
+      //   title: "Trend the hashtag #EthIsMoney",
+      //   summary: "Coordinate social media campaign to trend #EthIsMoney",
+      //   description: "TBD",
+      //   isMain: false,
+      //   isActive: false,
+      //   progress: 0,
+      // },
       {
         title: "Raise 3 ETH for an Ether Guild booth at Devcon",
         summary: "Fundraise to establish Ether Guild presence at Devcon",
