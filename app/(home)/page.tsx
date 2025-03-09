@@ -30,9 +30,9 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-background to-transparent -z-10" />
 
         {/* Content Container */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center -mt-20 z-10">
+        <div className="absolute inset-0 flex flex-col items-center justify-center -mt-20 z-10 px-4 text-center">
           {/* Logo */}
-          <div className="w-1/2 max-w-xl mb-8">
+          <div className="w-[85%] sm:w-1/2 max-w-xl mb-8">
             <Image
               src="/image/ether-guild-logo-dark-mode.png"
               alt="Ether Guild Logo Dark Mode"
@@ -52,7 +52,7 @@ export default function HomePage() {
           </div>
 
           {/* Text and CTA */}
-          <h2 className="text-6xl font-bold text-white mt-8 mb-8">
+          <h2 className="text-5xl sm:text-6xl font-bold text-white mt-8 mb-8 px-4">
             Fund ETH Initiatives
           </h2>
           <Link
