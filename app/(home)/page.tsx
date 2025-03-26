@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useNavbar } from "@/app/contexts/navbar-context";
 import { useEffect } from "react";
+import { FaXTwitter, FaGithub, FaDiscord } from "react-icons/fa6";
 
 export default function HomePage() {
   const { setShowNavbar } = useNavbar();
@@ -61,6 +62,34 @@ export default function HomePage() {
           >
             Read More
           </Link>
+
+          {/* Social Media Icons */}
+          <div className="flex gap-6 mt-8">
+            <Link
+              href="https://x.com/TheEtherGuild"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#A23B23] transition-colors"
+            >
+              <FaXTwitter size={24} />
+            </Link>
+            <Link
+              href="https://github.com/its-everdred/etherguild"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#A23B23] transition-colors"
+            >
+              <FaGithub size={24} />
+            </Link>
+            <Link
+              href="https://discord.gg/dAM6jwm9Ww"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#A23B23] transition-colors"
+            >
+              <FaDiscord size={24} />
+            </Link>
+          </div>
         </div>
       </div>
     </main>
