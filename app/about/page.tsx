@@ -28,7 +28,7 @@ export default function About() {
     <main className="flex min-h-screen flex-col">
       <Hero
         imagePath="/image/ether-guild-quests.png"
-        splashText="About Ether Guild!"
+        splashText="About Ether Guild"
       />
 
       <div className="container mx-auto px-4 -mt-[15%] relative z-10">
