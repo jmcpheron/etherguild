@@ -44,3 +44,8 @@ next-env.d.ts
 # other pkg managers
 bun.lockb
 yarn.lock
+
+# python
+.venv/
+venv/
+ENV/
