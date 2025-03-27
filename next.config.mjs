@@ -14,13 +14,13 @@ const nextConfig = {
     };
     return config;
   },
-  // Disable server-side features
+  // Configure for App Router
   experimental: {
     appDir: true,
     serverActions: false,
   },
-  // Ensure we're using the correct document
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  // Disable pages directory
+  useFileSystemPublicRoutes: false,
 };
 
 export default nextConfig; 
