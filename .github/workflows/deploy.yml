@@ -27,7 +27,14 @@ jobs:
       
       - name: Configure Next.js for static export
         run: |
-          echo 'module.exports = { output: "export" }' > next.config.mjs
+          # Make sure there's no conflicting config file
+          rm -f next.config.mjs
+          
+          # Update the TypeScript config file
+          sed -i 's/const nextConfig: NextConfig = {/const nextConfig: NextConfig = {\n  output: "export",/' next.config.ts
+          
+          # Show the modified config for debugging
+          cat next.config.ts
       
       - name: Build static site
         run: bun run next build
