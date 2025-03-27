@@ -21,13 +21,16 @@ jobs:
       
       - name: Install dependencies
         run: bun install
+        
+      - name: Install missing dependency
+        run: bun add -d pino-pretty
+      
+      - name: Configure Next.js for static export
+        run: |
+          echo 'module.exports = { output: "export" }' > next.config.mjs
       
       - name: Build static site
-        run: |
-          # Skip the Prisma database operations
-          # Just build the Next.js app for static deployment
-          bun run next build
-          bun run next export
+        run: bun run next build
         env:
           NEXT_PUBLIC_BASE_PATH: /etherguild
       
