@@ -74,7 +74,7 @@ export default function HomePage() {
               <FaXTwitter size={24} />
             </Link>
             <Link
-              href="https://github.com/its-everdred/etherguild"
+              href="https://github.com/its-everdred/etherguild/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-[#A23B23] transition-colors"
