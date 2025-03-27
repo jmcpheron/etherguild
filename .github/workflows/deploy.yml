@@ -22,14 +22,6 @@ jobs:
       - name: Install dependencies
         run: bun install
         
-      - name: Configure Next.js for static export
-        run: |
-          # Make sure there's no conflicting config file
-          rm -f next.config.mjs
-          
-          # Update the TypeScript config file
-          sed -i 's/const nextConfig: NextConfig = {/const nextConfig: NextConfig = {\n  output: "export",/' next.config.ts
-      
       - name: Remove API routes
         run: |
           # Remove the API routes that can't be exported statically
