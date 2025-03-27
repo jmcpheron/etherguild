@@ -4,10 +4,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Disable server-side features for static export
-  experimental: {
-    appDir: true,
-  },
   // Disable problematic features for static export
   webpack: (config) => {
     config.resolve.fallback = {
@@ -18,6 +14,13 @@ const nextConfig = {
     };
     return config;
   },
+  // Disable server-side features
+  experimental: {
+    appDir: true,
+    serverActions: false,
+  },
+  // Ensure we're using the correct document
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
 };
 
 export default nextConfig; 
