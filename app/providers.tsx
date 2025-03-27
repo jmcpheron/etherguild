@@ -17,7 +17,7 @@ const wagmiConfig = createConfig({
       appName: "onchainkit",
     }),
   ],
-  ssr: true,
+  ssr: false,
   transports: {
     [sepolia.id]: http(),
   },
