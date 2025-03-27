@@ -32,9 +32,11 @@ jobs:
           
           # Update the TypeScript config file
           sed -i 's/const nextConfig: NextConfig = {/const nextConfig: NextConfig = {\n  output: "export",/' next.config.ts
-          
-          # Show the modified config for debugging
-          cat next.config.ts
+      
+      - name: Remove API routes
+        run: |
+          # Remove the API routes that can't be exported statically
+          rm -rf app/api
       
       - name: Build static site
         run: bun run next build
