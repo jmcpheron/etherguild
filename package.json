@@ -8,7 +8,7 @@
     "build:local": "bun run env:dev bunx prisma migrate deploy && bunx prisma generate && next build",
     "build:vercel": "prisma generate && next build",
     "build:static": "rm -rf .next out && NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_DISABLE_API=true next build && mkdir -p out && cp -r public/* out/ && cp index.html out/",
-    "gh-pages": "rm -rf out && mkdir -p out && cp -r public/* out/ && cp index.html out/",
+    "gh-pages": "rm -rf out && mkdir -p out && cp -r public/* out/ && cp index.html out/ && node scripts/deploy-gh-pages.js",
     "start": "next start",
     "lint": "next lint",
     "env:dev": "dotenv -e .env.development",
