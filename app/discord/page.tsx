@@ -29,7 +29,7 @@ export default function Discord() {
 
           <section className="bg-accent/20 rounded-xl p-8 mt-8">
             <h3 className="text-xl font-semibold mb-4 text-center">
-              What You'll Find in Our Discord
+              What You&apos;ll Find in Our Discord
             </h3>
             <ul className="space-y-4 text-lg">
               <li className="flex items-center">
