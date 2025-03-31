@@ -46,7 +46,50 @@ try {
   
   // Ensure the output directory exists
   if (!fs.existsSync('out')) {
-    console.error(`${colors.red}✖ Error: 'out' directory does not exist. Run the build script first.${colors.reset}`);
+    console.log(`${colors.yellow}⚠ Warning: 'out' directory does not exist. Creating it now...${colors.reset}`);
+    fs.mkdirSync('out', { recursive: true });
+    
+    // Copy public directory if it exists
+    if (fs.existsSync('public')) {
+      console.log(`${colors.cyan}ℹ Copying files from public directory...${colors.reset}`);
+      try {
+        const publicFiles = fs.readdirSync('public');
+        for (const file of publicFiles) {
+          const srcPath = path.join('public', file);
+          const destPath = path.join('out', file);
+          
+          if (fs.lstatSync(srcPath).isDirectory()) {
+            fs.cpSync(srcPath, destPath, { recursive: true });
+          } else {
+            fs.copyFileSync(srcPath, destPath);
+          }
+        }
+      } catch (error) {
+        console.log(`${colors.yellow}⚠ Warning: Error copying public files: ${error.message}${colors.reset}`);
+      }
+    }
+    
+    // Copy index.html if it exists
+    if (fs.existsSync('index.html')) {
+      console.log(`${colors.cyan}ℹ Copying index.html...${colors.reset}`);
+      fs.copyFileSync('index.html', 'out/index.html');
+    } else {
+      console.error(`${colors.red}✖ Error: No index.html found.${colors.reset}`);
+      process.exit(1);
+    }
+  }
+  
+  // Verify the out directory has content
+  try {
+    const outFiles = fs.readdirSync('out');
+    if (outFiles.length === 0) {
+      console.error(`${colors.red}✖ Error: The 'out' directory exists but is empty.${colors.reset}`);
+      process.exit(1);
+    } else {
+      console.log(`${colors.green}✓ 'out' directory contains ${outFiles.length} files/directories${colors.reset}`);
+    }
+  } catch (error) {
+    console.error(`${colors.red}✖ Error reading 'out' directory: ${error.message}${colors.reset}`);
     process.exit(1);
   }
   
