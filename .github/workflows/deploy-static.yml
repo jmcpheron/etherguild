@@ -31,17 +31,20 @@ jobs:
           ls -la out/
           echo "Build verification complete"
 
-      - name: Commit and push static files
+      - name: Deploy to GitHub Pages
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add -f out/
-          git commit -m "chore: update static build output [skip ci]"
-          git push origin jason-github-pages
-
-      - name: Setup root index.html
-        run: |
-          cp out/index.html index.html
-          git add index.html
-          git commit -m "chore: add root index.html for GitHub Pages"
-          git push origin jason-github-pages
+          
+          # Remove existing files except .git
+          git rm -r --cached .
+          
+          # Copy out directory contents to root
+          cp -r out/* .
+          
+          # Add all files
+          git add .
+          
+          # Commit and push
+          git commit -m "chore: deploy static site to root [skip ci]"
+          git push origin jason-github-pages --force
