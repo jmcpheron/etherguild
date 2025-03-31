@@ -25,10 +25,23 @@ jobs:
       - name: Build static site
         run: bun run build:static
 
+      - name: Verify build output
+        run: |
+          echo "Checking build output..."
+          ls -la out/
+          echo "Build verification complete"
+
       - name: Commit and push static files
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git add -f out/
           git commit -m "chore: update static build output [skip ci]"
-          git push origin jason-github-pages 
+          git push origin jason-github-pages
+
+      - name: Setup root index.html
+        run: |
+          cp out/index.html index.html
+          git add index.html
+          git commit -m "chore: add root index.html for GitHub Pages"
+          git push origin jason-github-pages
