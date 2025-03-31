@@ -7,6 +7,7 @@
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 // Colors for terminal output
 const colors = {
@@ -93,6 +94,22 @@ try {
     process.exit(1);
   }
   
+  // Create a temporary directory to preserve the out directory content
+  // This is necessary because the out directory is lost when switching branches
+  const tempDir = path.join(os.tmpdir(), 'gh-pages-deploy-' + Date.now());
+  console.log(`${colors.cyan}ℹ Creating temporary directory: ${tempDir}${colors.reset}`);
+  fs.mkdirSync(tempDir, { recursive: true });
+  
+  // Copy out directory to temporary location
+  try {
+    console.log(`${colors.cyan}ℹ Copying 'out' directory to temporary location...${colors.reset}`);
+    fs.cpSync('out', tempDir, { recursive: true });
+    console.log(`${colors.green}✓ Files backed up to temporary directory${colors.reset}`);
+  } catch (error) {
+    console.error(`${colors.red}✖ Error backing up files: ${error.message}${colors.reset}`);
+    process.exit(1);
+  }
+  
   // Check if there are any uncommitted changes
   try {
     const status = execSync('git status --porcelain').toString().trim();
@@ -150,11 +167,13 @@ try {
     process.exit(1);
   }
   
-  // Copy all files from 'out' directory to the root
+  // Copy all files from temporary directory to the root
   try {
-    const files = fs.readdirSync('out');
+    // List all files in the temporary directory
+    const tempOutDir = path.join(tempDir);
+    const files = fs.readdirSync(tempOutDir);
     for (const file of files) {
-      const srcPath = path.join('out', file);
+      const srcPath = path.join(tempOutDir, file);
       const destPath = path.join('.', file);
       
       if (fs.lstatSync(srcPath).isDirectory()) {
@@ -164,6 +183,10 @@ try {
       }
     }
     console.log(`${colors.green}✓ Copied static files to gh-pages branch${colors.reset}`);
+    
+    // Clean up the temporary directory
+    fs.rmSync(tempDir, { recursive: true, force: true });
+    console.log(`${colors.green}✓ Cleaned up temporary directory${colors.reset}`);
   } catch (error) {
     console.error(`${colors.red}✖ Error copying files:${colors.reset} ${error.message}`);
     runCommand(`git checkout ${currentBranch}`);
@@ -182,9 +205,12 @@ try {
     process.exit(1);
   }
   
-  // Push to remote (only showing command but not executing for safety)
-  console.log(`\n${colors.bright}${colors.yellow}To complete the deployment, run:${colors.reset}`);
-  console.log(`${colors.cyan}git push origin gh-pages --force${colors.reset}`);
+  // Push to remote immediately without asking
+  if (!runCommand('git push origin gh-pages --force')) {
+    console.error(`${colors.red}✖ Failed to push to GitHub${colors.reset}`);
+    runCommand(`git checkout ${currentBranch}`);
+    process.exit(1);
+  }
   
   // Switch back to the original branch
   if (!runCommand(`git checkout ${currentBranch}`)) {
@@ -192,6 +218,6 @@ try {
     process.exit(1);
   }
   
-  console.log(`\n${colors.bright}${colors.green}✓ GitHub Pages deployment prepared successfully!${colors.reset}`);
-  console.log(`${colors.cyan}ℹ The site will be available at:${colors.reset} https://[username].github.io/[repository]`);
+  console.log(`\n${colors.bright}${colors.green}✓ GitHub Pages deployment completed successfully!${colors.reset}`);
+  console.log(`${colors.cyan}ℹ The site will be available shortly at:${colors.reset} https://[username].github.io/[repository]`);
 })(); 
