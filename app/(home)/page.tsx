@@ -61,6 +61,44 @@ export default function HomePage() {
           >
             Read More
           </Link>
+
+          {/* Navigation Links */}
+          <div className="flex gap-4 mt-6">
+            <Link
+              href="/about"
+              className="px-6 py-2 bg-white/10 text-white rounded-lg text-base font-medium hover:bg-white/20 transition-colors backdrop-blur-sm"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/discord"
+              className="px-6 py-2 bg-white/10 text-white rounded-lg text-base font-medium hover:bg-white/20 transition-colors backdrop-blur-sm"
+            >
+              Join Discord
+            </Link>
+          </div>
+
+          {/* Social Media Links */}
+          <div className="flex gap-4 mt-4">
+            <Link
+              href="https://x.com/TheEtherGuild"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-white/10 text-white rounded-lg text-base font-medium hover:bg-white/20 transition-colors backdrop-blur-sm flex items-center gap-2"
+            >
+              <span>𝕏</span>
+              Follow on X
+            </Link>
+            <Link
+              href="https://warpcast.com/etherguild"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-white/10 text-white rounded-lg text-base font-medium hover:bg-white/20 transition-colors backdrop-blur-sm flex items-center gap-2"
+            >
+              <span>🔗</span>
+              Follow on Farcaster
+            </Link>
+          </div>
         </div>
       </div>
     </main>
