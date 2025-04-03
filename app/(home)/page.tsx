@@ -55,12 +55,20 @@ export default function HomePage() {
           <h2 className="text-5xl sm:text-6xl font-bold text-white mt-8 mb-8 px-4">
             Fund ETH Initiatives
           </h2>
-          <Link
-            href="https://paragraph.xyz/@etherguild/introducing-ether-guild"
-            className="px-8 py-3 bg-[#A23B23] text-white rounded-lg text-lg font-semibold hover:bg-[#8B3220] transition-colors"
-          >
-            Read More
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="https://explorer.gitcoin.co/#/round/42161/867/153"
+              className="px-8 py-3 bg-[#A23B23] text-white rounded-lg text-lg font-semibold hover:bg-[#8B3220] transition-colors w-[200px]"
+            >
+              Donate
+            </Link>
+            <Link
+              href="https://paragraph.xyz/@etherguild/introducing-ether-guild"
+              className="px-8 py-3 border-2 border-white text-white rounded-lg text-lg font-semibold hover:bg-white hover:text-[#1F2937] transition-colors w-[200px]"
+            >
+              Read More
+            </Link>
+          </div>
         </div>
       </div>
     </main>
